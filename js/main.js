@@ -206,6 +206,49 @@
     updUI();
   });
 
+  /* ---------- Формула К×Д×Т: анимация карточек на слайде 03 ---------- */
+  document.querySelectorAll("[data-kdt]").forEach((root) => {
+    const slide = root.closest("[data-slide]");
+    if (!slide) return;
+    const cards = root.querySelectorAll("[data-kdt-card]");
+    const muls = root.querySelectorAll("[data-kdt-mul]");
+    const warn = root.querySelector("[data-kdt-warn]");
+    let played = false;
+
+    if (!reduced && window.gsap) {
+      gsap.set([...cards, ...muls, warn].filter(Boolean), { opacity: 0 });
+    }
+
+    const play = () => {
+      if (played || reduced || !window.gsap) return;
+      played = true;
+
+      gsap.set(cards, { opacity: 0, y: 48, scale: 0.9 });
+      gsap.set(muls, { opacity: 0, scale: 0.35 });
+      if (warn) gsap.set(warn, { opacity: 0, y: 20, scale: 0.95 });
+
+      const tl = gsap.timeline();
+      tl.to(cards, { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.16, ease: "power3.out" });
+      tl.to(muls, { opacity: 1, scale: 1, duration: 0.5, stagger: 0.1, ease: "back.out(2.4)" }, "-=0.5");
+      if (warn) tl.to(warn, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "power3.out" }, "-=0.1");
+    };
+
+    const reset = () => {
+      played = false;
+      if (!reduced && window.gsap) {
+        gsap.set([...cards, ...muls, warn].filter(Boolean), { opacity: 0, y: 0, scale: 1 });
+      }
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting && e.intersectionRatio >= 0.3) play();
+        else if (!e.isIntersecting) reset();
+      });
+    }, { threshold: [0, 0.3, 0.55] });
+    io.observe(slide);
+  });
+
   // ESC закрывает, ↑/↓ листают ленту открытой карточки
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && openCard) { close(); return; }
