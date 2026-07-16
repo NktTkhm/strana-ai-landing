@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=16" />
+  <link rel="stylesheet" href="css/styles.css?v=20" />
 </head>
 <body>
   <a class="mark" href="#" data-home aria-label="Страна — Strana.AI">
@@ -390,29 +390,161 @@
                       </div>
                     </div>
                   </section>
-                  <section class="slide" data-slide>
-                    <p class="slide__kicker" data-r>Слайд 04</p>
-                    <h2 class="slide__title" data-r>{{Заголовок слайда 04}}</h2>
-                    <p class="slide__lead" data-r>{{Краткий тезис или вводная фраза.}}</p>
-                    <div class="slide__zone" data-r><p class="slide__ph">{{Контент слайда — текст, схема, список, цифры.}}</p></div>
+                  <!-- Слайд 4 — архитектура ИИ в Стране -->
+                  <section class="slide slide--fit slide--arch" data-slide>
+                    <div class="slide__canvas">
+                      <div class="slide__head">
+                        <p class="slide__kicker" data-r>Слайд 04 · Архитектура</p>
+                        <h2 class="slide__title" data-r>Архитектура ИИ в Стране</h2>
+                        <p class="slide__lead" data-r>Единая платформа: от инфраструктуры и данных до агентов в бизнес-процессах. Не набор разрозненных пилотов — целостная система с общими правилами.</p>
+                      </div>
+                      <div class="slide__grid">
+                        <div class="slide__figure slide__figure--stack" data-r>
+                          <div class="aiarch">
+                            <div class="aiarch__layer aiarch__layer--top">
+                              <span class="aiarch__label">Приложения и агенты</span>
+                              <span class="aiarch__hint">кейсы в HR, строительстве, продажах</span>
+                            </div>
+                            <div class="aiarch__layer">
+                              <span class="aiarch__label">Платформа Strana.AI</span>
+                              <span class="aiarch__hint">API, оркестрация, доступ к моделям</span>
+                            </div>
+                            <div class="aiarch__layer">
+                              <span class="aiarch__label">Модели и инференс</span>
+                              <span class="aiarch__hint">LLM, эмбеддинги, специализированные модели</span>
+                            </div>
+                            <div class="aiarch__layer">
+                              <span class="aiarch__label">Данные и знания</span>
+                              <span class="aiarch__hint">хранилища, векторный поиск, контекст</span>
+                            </div>
+                            <div class="aiarch__layer aiarch__layer--base">
+                              <span class="aiarch__label">Инфраструктура</span>
+                              <span class="aiarch__hint">GPU, сети, безопасность, мониторинг</span>
+                            </div>
+                          </div>
+                        </div>
+                        <ul class="slide__points" data-r>
+                          <li><strong>Слои, не острова.</strong> Каждый уровень связан контрактами и стандартами — без «чёрных ящиков» между командами.</li>
+                          <li><strong>Strana.AI как шина.</strong> Единая точка доступа к моделям, знаниям и инструментам — без дублирования интеграций в каждом продукте.</li>
+                          <li><strong>Безопасность по умолчанию.</strong> Изоляция сред, контроль доступа к данным и аудит запросов на всех уровнях стека.</li>
+                          <li><strong>Переиспользование.</strong> Новый кейс подключается к готовым блокам платформы, а не строит архитектуру с нуля.</li>
+                        </ul>
+                      </div>
+                    </div>
                   </section>
-                  <section class="slide" data-slide>
-                    <p class="slide__kicker" data-r>Слайд 05</p>
-                    <h2 class="slide__title" data-r>{{Заголовок слайда 05}}</h2>
-                    <p class="slide__lead" data-r>{{Краткий тезис или вводная фраза.}}</p>
-                    <div class="slide__zone" data-r><p class="slide__ph">{{Контент слайда — текст, схема, список, цифры.}}</p></div>
+                  <!-- Слайд 5 — Мир vs Страна -->
+                  <section class="slide slide--fit slide--vs" data-slide>
+                    <div class="slide__canvas">
+                      <div class="slide__head">
+                        <p class="slide__kicker" data-r>Слайд 05 · Сравнение</p>
+                        <h2 class="slide__title" data-r>Мир vs Страна</h2>
+                        <p class="slide__lead" data-r>Сравниваем зрелость по ключевым направлениям. Оценки и формулировки уточним — пока зафиксирован первый показатель.</p>
+                      </div>
+                      <div class="vs" data-r>
+                        <div class="vs__table">
+                          <div class="vs__row vs__row--head">
+                            <span class="vs__metric">Направление</span>
+                            <span class="vs__col vs__col--world">Мир</span>
+                            <span class="vs__col vs__col--strana">Страна</span>
+                          </div>
+                          <div class="vs__row">
+                            <span class="vs__metric">Инфраструктура и технологии</span>
+                            <span class="vs__col vs__col--world"><span class="vs__ph">—</span></span>
+                            <span class="vs__col vs__col--strana"><span class="vs__pct">100%</span></span>
+                          </div>
+                          <div class="vs__row vs__row--mute">
+                            <span class="vs__metric">Данные</span>
+                            <span class="vs__col vs__col--world"><span class="vs__ph">{{уточним}}</span></span>
+                            <span class="vs__col vs__col--strana"><span class="vs__ph">{{уточним}}</span></span>
+                          </div>
+                          <div class="vs__row vs__row--mute">
+                            <span class="vs__metric">Культура и внедрение</span>
+                            <span class="vs__col vs__col--world"><span class="vs__ph">{{уточним}}</span></span>
+                            <span class="vs__col vs__col--strana"><span class="vs__ph">{{уточним}}</span></span>
+                          </div>
+                          <div class="vs__row vs__row--mute">
+                            <span class="vs__metric">Кейсы и эффект</span>
+                            <span class="vs__col vs__col--world"><span class="vs__ph">{{уточним}}</span></span>
+                            <span class="vs__col vs__col--strana"><span class="vs__ph">{{уточним}}</span></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </section>
-                  <section class="slide" data-slide>
-                    <p class="slide__kicker" data-r>Слайд 06</p>
-                    <h2 class="slide__title" data-r>{{Заголовок слайда 06}}</h2>
-                    <p class="slide__lead" data-r>{{Краткий тезис или вводная фраза.}}</p>
-                    <div class="slide__zone" data-r><p class="slide__ph">{{Контент слайда — текст, схема, список, цифры.}}</p></div>
+                  <!-- Слайд 6 — технологии не должны быть преградой -->
+                  <section class="slide slide--fit slide--nobar" data-slide>
+                    <div class="slide__canvas">
+                      <div class="slide__head">
+                        <p class="slide__kicker" data-r>Слайд 06 · Доступность</p>
+                        <h2 class="slide__title" data-r>Технологии не должны быть преградой</h2>
+                        <p class="slide__lead" data-r>Технология ускоряет решение задачи, а не становится отдельным проектом. Сложность остаётся в платформе — сотрудник работает с результатом.</p>
+                      </div>
+                      <div class="slide__grid">
+                        <div class="slide__figure slide__figure--stack" data-r>
+                          <div class="nobar">
+                            <div class="nobar__flow">
+                              <div class="nobar__step">
+                                <span class="nobar__tag">Вход</span>
+                                <span class="nobar__lbl">Бизнес-задача</span>
+                                <span class="nobar__sub">«нужен ответ или действие»</span>
+                              </div>
+                              <span class="nobar__arrow" aria-hidden="true">→</span>
+                              <div class="nobar__step nobar__step--hub">
+                                <span class="nobar__tag">Платформа</span>
+                                <span class="nobar__lbl">Strana.AI</span>
+                                <span class="nobar__sub">модели · данные · инструменты</span>
+                              </div>
+                              <span class="nobar__arrow" aria-hidden="true">→</span>
+                              <div class="nobar__step nobar__step--out">
+                                <span class="nobar__tag">Выход</span>
+                                <span class="nobar__lbl">Результат</span>
+                                <span class="nobar__sub">в процессе, без кода</span>
+                              </div>
+                            </div>
+                            <div class="nobar__under">
+                              <span class="nobar__under-lbl">Под капотом</span>
+                              <span class="nobar__chips">
+                                <span>GPU</span>
+                                <span>API</span>
+                                <span>RAG</span>
+                                <span>агенты</span>
+                                <span>безопасность</span>
+                              </span>
+                            </div>
+                            <p class="nobar__cap">Пользователь не обязан знать, как это устроено внутри</p>
+                          </div>
+                        </div>
+                        <ul class="slide__points" data-r>
+                          <li><strong>Скрытая сложность.</strong> Инфраструктура, модели и интеграции — на платформе. В интерфейсе остаётся только задача и ответ.</li>
+                          <li><strong>Быстрый старт.</strong> Пилот за дни, не месяцы: готовые коннекторы, шаблоны агентов, единая авторизация.</li>
+                          <li><strong>Язык бизнеса.</strong> Формулируем цель и контекст — технические детали не перекладываем на заказчика решения.</li>
+                          <li><strong>Масштаб без боли.</strong> То, что сработало в пилоте, переносится в прод без переписывания архитектуры с нуля.</li>
+                        </ul>
+                      </div>
+                    </div>
                   </section>
-                  <section class="slide" data-slide>
-                    <p class="slide__kicker" data-r>Слайд 07</p>
-                    <h2 class="slide__title" data-r>{{Заголовок слайда 07}}</h2>
-                    <p class="slide__lead" data-r>{{Краткий тезис или вводная фраза.}}</p>
-                    <div class="slide__zone" data-r><p class="slide__ph">{{Контент слайда — текст, схема, список, цифры.}}</p></div>
+                  <!-- Слайд 7 — данные: три ловушки -->
+                  <section class="slide slide--fit slide--data" data-slide>
+                    <div class="slide__canvas">
+                      <div class="slide__head">
+                        <p class="slide__kicker" data-r>Слайд 07 · Данные</p>
+                        <h2 class="slide__title" data-r>Данные</h2>
+                        <p class="slide__lead" data-r>Три типичные ловушки — любая из них блокирует ИИ не хуже, чем полное отсутствие данных.</p>
+                      </div>
+                      <div class="data3" data-r>
+                        <div class="data3__row">
+                          <article class="data3__card data3__card--empty">
+                            <h3 class="data3__title">Нет данных</h3>
+                          </article>
+                          <article class="data3__card data3__card--trust">
+                            <h3 class="data3__title">Есть данные, но&nbsp;нет доверия</h3>
+                          </article>
+                          <article class="data3__card data3__card--overflow">
+                            <h3 class="data3__title">Избыток данных</h3>
+                          </article>
+                        </div>
+                      </div>
+                    </div>
                   </section>
                   <section class="slide" data-slide>
                     <p class="slide__kicker" data-r>Слайд 08</p>
