@@ -482,6 +482,9 @@ body.is-open .theme { opacity: 0; pointer-events: none; }
   border-radius: 12px;
   box-shadow: 0 16px 48px rgba(0, 0, 0, .28);
 }
+.slide--fit .slide__figure:not(.slide__figure--stack) > img {
+  cursor: zoom-in;
+}
 .slide--fit .slide__points {
   margin: 0;
   max-width: none;
@@ -496,6 +499,35 @@ body.is-open .theme { opacity: 0; pointer-events: none; }
   line-height: 1.36;
   padding-left: clamp(16px, 1.4vw, 22px);
   border-left-width: 4px;
+}
+
+/* — AI в Стране: слайд 02 — путь внедрения — */
+.slide--fit.slide--path .slide__canvas {
+  gap: clamp(8px, 1.1vh, 12px);
+}
+.slide--fit.slide--path .slide__grid {
+  grid-template-columns: minmax(0, 1.58fr) minmax(0, 0.92fr);
+  gap: clamp(16px, 2.2vw, 28px);
+}
+.slide--fit.slide--path .slide__figure {
+  min-width: 0;
+  align-items: stretch;
+  justify-content: stretch;
+}
+.slide--fit.slide--path .slide__figure img {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+.slide--fit.slide--path .slide__points {
+  min-width: 0;
+  gap: clamp(10px, 1.5vh, 16px);
+}
+.slide--fit.slide--path .slide__points li {
+  font-size: clamp(18px, 2.05vh, 27px);
+  line-height: 1.32;
 }
 
 /* — Слайд 03: формула Т × Д × К — */
@@ -1364,6 +1396,77 @@ body.is-open .theme { opacity: 0; pointer-events: none; }
 @media (prefers-reduced-motion: reduce) {
   .duck__bird, .duck__bird.is-place svg { animation: none; }
   .duck__wall i { animation: none; }
+}
+
+/* — Полноэкранный просмотр картинок на слайдах — */
+.img-zoom {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 4vw, 48px);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s var(--ease), visibility .28s var(--ease);
+}
+.img-zoom.is-open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+body.is-img-zoom { overflow: hidden; }
+.img-zoom__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 10, 14, .92);
+  backdrop-filter: blur(8px);
+}
+:root[data-theme="light"] .img-zoom__scrim {
+  background: rgba(244, 241, 236, .94);
+}
+.img-zoom__frame {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  max-width: min(96vw, 1400px);
+  max-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-zoom__img {
+  display: block;
+  max-width: 100%;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .45);
+}
+:root[data-theme="light"] .img-zoom__img {
+  box-shadow: 0 20px 64px rgba(35, 41, 52, .2);
+}
+.img-zoom__close {
+  position: fixed;
+  top: clamp(16px, 2.4vw, 26px);
+  right: var(--gutter);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--hair);
+  background: var(--surface);
+  color: var(--fg);
+  transition: border-color .25s var(--ease), transform .25s var(--ease);
+}
+.img-zoom__close:hover {
+  border-color: var(--fg);
+  transform: scale(1.04);
 }
 
 /* =========================================================

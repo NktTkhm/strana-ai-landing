@@ -284,9 +284,72 @@
     mo.observe(pageEl, { attributes: true, attributeFilter: ["hidden"] });
   });
 
-  // ESC закрывает, ↑/↓ листают ленту открытой карточки
+  /* ---------- Полноэкранный просмотр картинок на слайдах ---------- */
+  let closeImgZoom = null;
+
+  (function imgZoom() {
+    const sources = document.querySelectorAll(".slide .slide__figure:not(.slide__figure--stack) > img");
+    if (!sources.length) return;
+
+    const root = document.createElement("div");
+    root.className = "img-zoom";
+    root.setAttribute("role", "dialog");
+    root.setAttribute("aria-modal", "true");
+    root.setAttribute("aria-label", "Изображение во весь экран");
+    root.innerHTML =
+      '<div class="img-zoom__scrim" aria-hidden="true"></div>' +
+      '<figure class="img-zoom__frame"><img class="img-zoom__img" alt="" /></figure>' +
+      '<button type="button" class="img-zoom__close" aria-label="Свернуть">' +
+      '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">' +
+      '<path d="M18 6 6 18M6 6l12 12"/></svg></button>';
+    document.body.appendChild(root);
+
+    const zoomImg = root.querySelector(".img-zoom__img");
+    const closeBtn = root.querySelector(".img-zoom__close");
+    let active = false;
+    let lastFocus = null;
+
+    const openZoom = (source) => {
+      lastFocus = source;
+      zoomImg.src = source.currentSrc || source.src;
+      zoomImg.alt = source.alt;
+      root.classList.add("is-open");
+      document.body.classList.add("is-img-zoom");
+      active = true;
+      closeBtn.focus();
+    };
+
+    const closeZoom = () => {
+      if (!active) return;
+      root.classList.remove("is-open");
+      document.body.classList.remove("is-img-zoom");
+      active = false;
+      zoomImg.removeAttribute("src");
+      if (lastFocus) lastFocus.focus();
+    };
+
+    closeImgZoom = closeZoom;
+
+    sources.forEach((el) => {
+      el.tabIndex = 0;
+      el.setAttribute("role", "button");
+      const label = el.alt ? el.alt + " — развернуть" : "Развернуть изображение";
+      el.setAttribute("aria-label", label);
+      el.addEventListener("click", () => openZoom(el));
+      el.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openZoom(el); }
+      });
+    });
+
+    closeBtn.addEventListener("click", closeZoom);
+  })();
+
+  // ESC закрывает лайтбокс, карточку или листает ленту
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && openCard) { close(); return; }
+    if (e.key === "Escape") {
+      if (closeImgZoom && document.body.classList.contains("is-img-zoom")) { closeImgZoom(); return; }
+      if (openCard) { close(); return; }
+    }
     if (!openCard) return;
     const sl = openCard.querySelector("[data-slides]");
     if (!sl || !sl._go) return;
