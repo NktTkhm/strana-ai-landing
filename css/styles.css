@@ -1,5 +1,5 @@
 /* =========================================================
-   Синхронизация бизнеса и ИИ · ГК Страна — хаб из 5 карточек
+   Синхронизация бизнеса и ИИ · ГК Страна Девелопмент — хаб из 5 карточек
    Палитра + шрифты — бренд (brandbook.strana.com).
    Тёмная/светлая тема — через семантические токены.
    ========================================================= */
@@ -29,7 +29,7 @@
   --fg-muted: rgba(255,255,255,.76);
   --surface:  #20242E;
   --hair:     rgba(255,255,255,.16);
-  --floors-c: rgba(255,255,255,.05);
+  --floors-c: transparent;
   --scrim:    linear-gradient(180deg, rgba(12,14,19,.15) 0%, rgba(12,14,19,.72) 100%);
   --bar-scrim:linear-gradient(180deg, rgba(12,14,19,.85), rgba(12,14,19,0));
   --logo-img: url("../assets/logo_white.png");
@@ -47,7 +47,7 @@
   --fg-muted: #4F535D;
   --surface:  #FFFFFF;
   --hair:     rgba(35,41,52,.14);
-  --floors-c: rgba(35,41,52,.05);
+  --floors-c: transparent;
   --scrim:    linear-gradient(180deg, rgba(244,241,236,0) 0%, rgba(244,241,236,.06) 100%);
   --bar-scrim:linear-gradient(180deg, rgba(244,241,236,.92), rgba(244,241,236,0));
   --logo-img: url("../assets/logo_gradient.png");
@@ -122,6 +122,18 @@ body.is-open .theme { opacity: 0; pointer-events: none; }
 }
 .card--feature .card__media { background: var(--img, none) center/cover no-repeat, var(--floors), var(--grad); }
 
+/* Открытая страница feature-карточки следует теме сайта, а не белым токенам лица */
+.card--feature .card__page {
+  --fg: #fff; --fg-muted: rgba(255,255,255,.76); --surface: #20242E;
+  --hair: rgba(255,255,255,.16); --kicker-c: var(--accent-soft); --chip: rgba(0,0,0,.28);
+  --bar-scrim: linear-gradient(180deg, rgba(12,14,19,.85), rgba(12,14,19,0));
+}
+:root[data-theme="light"] .card--feature .card__page {
+  --fg: #232934; --fg-muted: #4F535D; --surface: #FFFFFF;
+  --hair: rgba(35,41,52,.14); --kicker-c: var(--accent); --chip: rgba(35,41,52,.06);
+  --bar-scrim: linear-gradient(180deg, rgba(244,241,236,.92), rgba(244,241,236,0));
+}
+
 .card__face { position: absolute; inset: 0; z-index: 2; text-align: left; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(18px,1.8vw,30px); transition: opacity .25s var(--ease); }
 .card:hover .card__media { transform: scale(1.05); }
 .card:hover .card__cta { color: var(--fg); }
@@ -164,6 +176,7 @@ body.is-open .theme { opacity: 0; pointer-events: none; }
 .card__page { position: absolute; inset: 0; z-index: 3; overflow-y: auto; -webkit-overflow-scrolling: touch; color: var(--fg); }
 .card__page[hidden] { display: none !important; }
 .card.is-open .card__page:has(.page__body--slides) {
+  color: var(--fg);
   display: block;
   overflow-y: auto;
   overflow-x: hidden;
@@ -206,6 +219,130 @@ body.is-open .theme { opacity: 0; pointer-events: none; }
 .tl__row > div { padding-left: 40px; }
 .tl__row h3 { font-family: var(--display); font-weight: 400; font-size: clamp(18px,2vw,23px); letter-spacing:-.01em; line-height:1.15; margin-bottom: 4px; color: var(--fg); }
 .tl__row p { color: var(--fg-muted); font-size: 15px; }
+
+/* =========================================================
+   Дорожная карта (карточка 04) — три дорожки Т / Д / К
+   ========================================================= */
+.page__body--rmap { max-width: 1100px; }
+.rmap { margin-top: clamp(8px, 1.5vh, 18px); }
+.rmap__legend {
+  display: flex; flex-wrap: wrap; gap: 14px 22px;
+  margin-bottom: clamp(22px, 3.5vh, 36px);
+}
+.rmap__lg {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: var(--fg-muted);
+  letter-spacing: .02em;
+}
+.rmap__lg i {
+  display: block; width: 18px; height: 10px; border-radius: 4px;
+}
+.rmap__lg--done i { background: var(--grad); }
+.rmap__lg--now i {
+  background: color-mix(in srgb, var(--accent) 55%, var(--surface));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 50%, transparent);
+}
+.rmap__lg--next i {
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px var(--hair);
+}
+
+.rmap__chart {
+  display: grid;
+  gap: clamp(16px, 2.4vh, 28px);
+}
+.rmap__row {
+  display: grid;
+  grid-template-columns: minmax(120px, 180px) 1fr;
+  gap: clamp(14px, 2vw, 28px);
+  align-items: stretch;
+}
+.rmap__label {
+  display: flex; align-items: center; gap: 12px;
+  min-height: clamp(56px, 8vh, 78px);
+}
+.rmap__letter {
+  flex: 0 0 auto;
+  width: 36px; height: 36px; border-radius: 10px;
+  display: grid; place-items: center;
+  font-family: var(--display); font-weight: 600; font-size: 16px;
+  color: #fff; background: var(--grad);
+}
+.rmap__name {
+  font-family: var(--display); font-weight: 500;
+  font-size: clamp(18px, 2vw, 24px); line-height: 1.1;
+  letter-spacing: -.01em; color: var(--fg);
+}
+
+.rmap__track {
+  display: flex; align-items: stretch; gap: 0;
+  min-height: clamp(56px, 8vh, 78px);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  box-shadow: inset 0 0 0 1px var(--hair);
+  overflow: hidden;
+}
+.rmap__track--split { gap: 3px; background: transparent; box-shadow: none; overflow: visible; }
+
+.rmap__bar {
+  position: relative;
+  flex: 1 1 0;
+  display: flex; align-items: center; justify-content: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  min-width: 0;
+  transform-origin: left center;
+  will-change: transform;
+}
+.rmap__bar--full { flex: 1 1 100%; border-radius: 14px; }
+.rmap__bar--done {
+  background: var(--grad);
+  color: #fff;
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--accent) 28%, transparent);
+}
+.rmap__bar--now {
+  background: color-mix(in srgb, var(--accent) 22%, var(--surface));
+  color: var(--fg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, var(--hair));
+}
+.rmap__bar--next {
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
+  color: var(--fg-muted);
+  box-shadow: inset 0 0 0 1.5px var(--hair);
+}
+.rmap__bar-txt {
+  font-family: var(--display); font-weight: 500;
+  font-size: clamp(13px, 1.35vw, 17px);
+  letter-spacing: -.01em; line-height: 1.2;
+  text-align: center; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.rmap__note {
+  margin-top: clamp(22px, 3.5vh, 36px);
+  font-size: clamp(14px, 1.4vw, 16px);
+  color: var(--fg-muted);
+  max-width: 52ch;
+  line-height: 1.45;
+  padding-left: 14px;
+  border-left: 3px solid var(--accent);
+}
+
+@media (max-width: 720px) {
+  .rmap__row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .rmap__label { min-height: 0; }
+  .rmap__track, .rmap__track--split { min-height: 52px; }
+  .rmap__track--split { flex-direction: column; gap: 6px; }
+  .rmap__bar-txt { white-space: normal; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rmap__bar { will-change: auto; }
+}
 
 /* =========================================================
    Вертикальная лента слайдов — на всю страницу

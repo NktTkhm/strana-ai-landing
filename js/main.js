@@ -1,5 +1,5 @@
 /* =========================================================
-   Хаб из 5 карточек · ГК Страна
+   Хаб из 5 карточек · ГК Страна Девелопмент
    Клик по карточке → разворот в полноэкранную «страницу» (GSAP Flip)
    ========================================================= */
 (function () {
@@ -247,6 +247,41 @@
       });
     }, { threshold: [0, 0.3, 0.55] });
     io.observe(slide);
+  });
+
+  /* ---------- Дорожная карта: анимация полос при открытии ---------- */
+  document.querySelectorAll("[data-rmap]").forEach((root) => {
+    const bars = root.querySelectorAll("[data-rmap-bar]");
+    const rows = root.querySelectorAll("[data-rmap-row]");
+    if (!bars.length) return;
+
+    const play = () => {
+      if (reduced || !window.gsap) {
+        bars.forEach((b) => { b.style.transform = "none"; b.style.opacity = "1"; });
+        return;
+      }
+      gsap.fromTo(
+        rows,
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.45, stagger: 0.1, ease: "power3.out" }
+      );
+      gsap.fromTo(
+        bars,
+        { scaleX: 0, opacity: 0.35 },
+        { scaleX: 1, opacity: 1, duration: 0.7, stagger: 0.08, ease: "power3.out", delay: 0.12 }
+      );
+    };
+
+    const pageEl = root.closest(".card__page");
+    const card = root.closest("[data-card]");
+    if (!pageEl || !card) return;
+
+    const mo = new MutationObserver(() => {
+      if (!pageEl.hasAttribute("hidden") && card.classList.contains("is-open")) {
+        play();
+      }
+    });
+    mo.observe(pageEl, { attributes: true, attributeFilter: ["hidden"] });
   });
 
   // ESC закрывает, ↑/↓ листают ленту открытой карточки
