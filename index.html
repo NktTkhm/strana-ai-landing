@@ -8,13 +8,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=25" />
+  <link rel="stylesheet" href="css/styles.css?v=38" />
 </head>
 <body>
-  <a class="mark" href="#" data-home aria-label="Страна — Strana.AI">
-    <span class="mark__logo"></span>
-    <span class="mark__tag">Strana.AI</span>
-  </a>
+  <div class="mark">
+    <a class="mark__home" href="#" data-home aria-label="Страна">
+      <span class="mark__logo"></span>
+    </a>
+    <a class="mark__tag" href="https://ai.itstrana.site/" target="_blank" rel="noopener noreferrer">Strana.AI</a>
+  </div>
 
   <button class="theme" data-theme-toggle aria-label="Переключить тему">
     <svg class="theme__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
@@ -78,7 +80,7 @@
         </button>
         <section class="card__page" hidden>
           <div class="page__bar">
-            <button class="page__back" data-back>← Назад</button>
+            <button class="page__back" data-back aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6 9 12l6 6"/></svg></button>
             <span class="page__tag">01 · AI в Стране</span>
           </div>
           <div class="page__body page__body--slides">
@@ -375,173 +377,107 @@
         </button>
         <section class="card__page" hidden>
           <div class="page__bar">
-            <button class="page__back" data-back>← Назад</button>
+            <button class="page__back" data-back aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6 9 12l6 6"/></svg></button>
             <span class="page__tag">02 · Приветствие</span>
           </div>
-          <div class="page__body">
-            <h2 class="page__title" data-r>Приветствие</h2>
-            <p class="page__lead" data-r>{{Вступительное слово: цель сессии, зачем собрались, что получим на выходе.}}</p>
-            <p class="page__ph" data-r>{{Контент карточки — зальётся следующим запросом.}}</p>
+          <div class="page__body page__body--slides">
+            <div class="slides slides--tape" data-slides>
+              <div class="slides__viewport" data-slides-viewport tabindex="0">
+                <div class="slides__track" data-slides-track>
 
-            <div class="page__art" data-r>
-              <svg viewBox="0 0 900 950" fill="none" stroke="#232934" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Синхронизация бизнеса и ИИ в ГК Страна Девелопмент — схема">
-                <rect width="900" height="950" rx="24" fill="#F4F1EC" stroke="none"/>
+                  <!-- Слайд 1 — AI в Стране -->
+                  <section class="slide slide--fit slide--welcome" data-slide>
+                    <div class="slide__canvas">
+                      <div class="slide__head">
+                        <p class="slide__kicker" data-r>Слайд 01 · Вступление</p>
+                        <h2 class="slide__title" data-r>AI в Стране</h2>
+                        <p class="slide__lead" data-r>Когда лидеры умеют ими пользоваться, проекты идут быстрее, решения становятся точнее, а команда сильнее. Наша задача — дать каждому руководителю этот навык и вместе двигать компанию вперёд.</p>
+                      </div>
+                      <div class="slide__grid">
+                        <figure class="slide__figure" data-r>
+                          <img src="assets/slide-welcome-ai.png" width="1024" height="576" alt="Московский квартал от Страны — футуристичный визуал умного города" loading="lazy" />
+                        </figure>
+                        <ul class="slide__points" data-r>
+                          <li>Главный рычаг роста прибыли сегодня — не больше людей и не больше техники, а выше эффективность на каждом этапе.</li>
+                          <li>Не замена людям, а инструмент развития лидеров: кто научится ими пользоваться раньше, будет принимать решения быстрее, точнее и сильнее конкурентов.</li>
+                          <li>ИИ — не эксперимент «на потом», а новая операционная норма.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </section>
 
-                <!-- логотип-часы -->
-                <path d="M141 105 A52 52 0 1 0 164 132" stroke-width="6"/>
-                <circle cx="150" cy="92" r="9" fill="#C7017F" stroke="none"/>
-                <path d="M115 150 V120 M115 150 L92 164" stroke-width="6"/>
-                <circle cx="115" cy="150" r="4.5" fill="#232934" stroke="none"/>
-                <g stroke="#C7017F" stroke-width="3.5">
-                  <path d="M136 162 h22 M136 174 h14"/>
-                  <circle cx="164" cy="162" r="4"/><circle cx="156" cy="174" r="4"/>
-                </g>
+                  <!-- Слайд 2 — Правила мероприятия -->
+                  <section class="slide slide--fit slide--rules" data-slide>
+                    <div class="slide__canvas">
+                      <div class="slide__head">
+                        <p class="slide__kicker" data-r>Слайд 02 · Формат</p>
+                        <h2 class="slide__title" data-r>Правила мероприятия</h2>
+                      </div>
+                      <div class="kdt kdt--cpr kdt--rules" data-kdt data-r>
+                        <div class="kdt__row">
+                          <article class="kdt__card kdt__card--need" data-kdt-card>
+                            <h3 class="kdt__name">Нужно</h3>
+                            <ul class="kdt__list">
+                              <li>Отвечать на срочные сообщения и звонки вне зала</li>
+                              <li>Снимать когнитивную нагрузку через мелкую моторику</li>
+                              <li>Записывать идеи</li>
+                            </ul>
+                          </article>
+                          <article class="kdt__card kdt__card--ok" data-kdt-card>
+                            <h3 class="kdt__name">Можно</h3>
+                            <ul class="kdt__list">
+                              <li>Задавать вопросы на которые вы знаете ответы, если это поможет разобраться другим</li>
+                            </ul>
+                          </article>
+                          <article class="kdt__card kdt__card--no" data-kdt-card>
+                            <h3 class="kdt__name">Не надо так</h3>
+                            <ul class="kdt__list">
+                              <li>Молчать, если не понятно (худший вопрос — незаданный)</li>
+                              <li>Переключаться на другую задачу, оставаясь в зале</li>
+                            </ul>
+                          </article>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
 
-                <!-- заголовок -->
-                <g fill="#232934" stroke="none" font-family="Strana, Unbounded, sans-serif" font-weight="600" font-size="42">
-                  <text x="212" y="120">Синхронизация</text>
-                  <text x="212" y="172">бизнеса и ИИ</text>
-                  <text x="212" y="224">в ГК <tspan fill="#C7017F">Страна</tspan></text>
-                </g>
+                  <!-- Слайд 3 — Цель, процесс, результат -->
+                  <section class="slide slide--fit slide--formula slide--cpr" data-slide>
+                    <div class="slide__canvas">
+                      <div class="slide__head">
+                        <p class="slide__kicker" data-r>Слайд 03 · Рамка дня</p>
+                        <h2 class="slide__title" data-r>Цель, процесс, результат</h2>
+                      </div>
+                      <div class="kdt kdt--cpr" data-kdt>
+                        <div class="kdt__row">
+                          <article class="kdt__card" data-kdt-card>
+                            <h3 class="kdt__name">Цель</h3>
+                            <p class="kdt__text">Повысить эффективность компании, используя технологии ИИ</p>
+                          </article>
+                          <span class="kdt__mul" data-kdt-mul aria-hidden="true">×</span>
+                          <article class="kdt__card" data-kdt-card>
+                            <h3 class="kdt__name">Процесс</h3>
+                            <p class="kdt__text">Практическая СС с разработкой AI-агента</p>
+                          </article>
+                          <span class="kdt__mul" data-kdt-mul aria-hidden="true">×</span>
+                          <article class="kdt__card" data-kdt-card>
+                            <h3 class="kdt__name">Результат</h3>
+                            <p class="kdt__text">В каждом блоке нанят на работу AI-агент, который делает компанию эффективнее</p>
+                          </article>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
 
-                <!-- здания (верх-право) -->
-                <ellipse cx="745" cy="225" rx="110" ry="82" fill="#E9E4DB" stroke="none"/>
-                <rect x="675" y="180" width="62" height="108" fill="#F4F1EC"/>
-                <g fill="#232934" stroke="none">
-                  <rect x="687" y="194" width="11" height="11"/><rect x="706" y="194" width="11" height="11"/>
-                  <rect x="687" y="213" width="11" height="11"/><rect x="706" y="213" width="11" height="11"/>
-                  <rect x="687" y="232" width="11" height="11"/><rect x="706" y="232" width="11" height="11"/>
-                </g>
-                <path d="M697 288 v-18 h18 v18"/>
-                <rect x="750" y="140" width="56" height="148" fill="#232934"/>
-                <g stroke="#F4F1EC" stroke-width="3.5">
-                  <path d="M761 158 h11 M784 158 h11 M761 176 h11 M784 176 h11 M761 194 h11 M784 194 h11 M761 212 h11 M784 212 h11 M761 230 h11 M784 230 h11 M761 248 h11 M784 248 h11"/>
-                </g>
-                <circle cx="830" cy="270" r="13" fill="#F4F1EC"/>
-                <path d="M830 283 v13"/>
-                <path d="M668 288 H852" stroke-width="5"/>
-
-                <!-- команда (над орбитой) -->
-                <g fill="#F4F1EC">
-                  <circle cx="398" cy="312" r="18"/><circle cx="502" cy="312" r="18"/><circle cx="450" cy="300" r="19"/>
-                </g>
-                <path d="M373 352 a25 25 0 0 1 50 0 M477 352 a25 25 0 0 1 50 0 M425 344 a25 25 0 0 1 50 0"/>
-                <path d="M450 321 l6 14 -6 16 -6 -16 z" fill="#C7017F" stroke="none"/>
-
-                <!-- график (лево) -->
-                <rect x="125" y="335" width="120" height="110" rx="14" fill="#F4F1EC"/>
-                <path d="M150 420 v-24 M172 420 v-40 M194 420 v-56" stroke-width="6"/>
-                <g stroke="#C7017F" stroke-width="5">
-                  <path d="M144 376 q26 -26 58 -30"/>
-                  <path d="M190 342 l14 3 -4 13"/>
-                </g>
-
-                <!-- шестерёнка с галочкой (лево-низ) -->
-                <circle cx="160" cy="640" r="40" stroke-width="5" fill="#F4F1EC"/>
-                <g stroke-width="5">
-                  <path d="M200 640 h13 M120 640 h-13 M160 600 v-13 M160 680 v13"/>
-                  <path d="M188 612 l9 -9 M132 612 l-9 -9 M188 668 l9 9 M132 668 l-9 9"/>
-                </g>
-                <circle cx="160" cy="640" r="21"/>
-                <path d="M148 641 l9 10 19 -21" stroke="#C7017F" stroke-width="6"/>
-
-                <!-- центр: мозг + микросхема -->
-                <circle cx="450" cy="560" r="160" stroke-dasharray="3 12" opacity=".75" stroke-width="3.5"/>
-                <circle cx="450" cy="560" r="100" fill="#232934" stroke="none"/>
-                <g stroke="#F4F1EC" stroke-width="6">
-                  <path d="M444 480 a80 80 0 1 0 0 160"/>
-                  <path d="M444 484 q-26 2 -36 22"/>
-                  <path d="M398 496 q-22 14 -18 36"/>
-                  <path d="M380 536 q-12 18 -2 36"/>
-                  <path d="M386 578 q-8 20 10 32"/>
-                  <path d="M404 614 q2 16 20 20"/>
-                  <path d="M444 524 q-18 6 -20 24"/>
-                  <path d="M444 570 q-16 8 -14 26"/>
-                </g>
-                <g stroke="#C7017F" stroke-width="5">
-                  <path d="M456 508 l32 -20 h24"/><circle cx="520" cy="488" r="7"/>
-                  <path d="M456 542 h50"/><circle cx="514" cy="542" r="7"/>
-                  <path d="M456 576 l36 12 18 16"/><circle cx="518" cy="608" r="7"/>
-                  <path d="M456 610 l26 22"/><circle cx="490" cy="636" r="7"/>
-                </g>
-                <g fill="#C7017F" stroke="none">
-                  <circle cx="458" cy="508" r="4"/><circle cx="458" cy="542" r="4"/><circle cx="458" cy="576" r="4"/><circle cx="458" cy="610" r="4"/>
-                </g>
-
-                <!-- связи -->
-                <path d="M450 362 V392" stroke-width="3.5"/>
-                <path d="M700 300 L570 442" stroke-width="3.5"/>
-                <path d="M256 428 L330 448" stroke-dasharray="2 9" stroke-width="3.5"/>
-                <path d="M212 618 L286 566" stroke-width="3.5"/>
-                <path d="M612 562 L708 588" stroke-width="3.5"/>
-                <path d="M566 676 L672 758" stroke-dasharray="2 9" stroke-width="3.5"/>
-                <path d="M450 722 V748" stroke-width="3.5"/>
-                <path d="M334 676 L262 738" stroke-dasharray="2 9" stroke-width="3.5"/>
-
-                <!-- узлы на орбите -->
-                <g stroke="none">
-                  <circle cx="450" cy="400" r="7.5" fill="#232934"/>
-                  <circle cx="563" cy="447" r="7.5" fill="#C7017F"/>
-                  <circle cx="610" cy="560" r="7.5" fill="#232934"/>
-                  <circle cx="563" cy="673" r="7.5" fill="#C7017F"/>
-                  <circle cx="450" cy="720" r="7.5" fill="#232934"/>
-                  <circle cx="337" cy="673" r="7.5" fill="#C7017F"/>
-                  <circle cx="290" cy="560" r="7.5" fill="#232934"/>
-                  <circle cx="337" cy="447" r="7.5" fill="#C7017F"/>
-                </g>
-
-                <!-- ноутбук (право) -->
-                <rect x="712" y="552" width="100" height="66" rx="8" fill="#F4F1EC"/>
-                <circle cx="745" cy="585" r="13"/>
-                <circle cx="745" cy="585" r="4" fill="#232934" stroke="none"/>
-                <path d="M767 573 h28 M767 587 h28 M767 601 h20" stroke-width="3.5"/>
-                <path d="M697 628 h130 l-12 16 h-106 z" fill="#F4F1EC"/>
-
-                <!-- человек в прицеле (низ-право) -->
-                <circle cx="718" cy="800" r="46"/>
-                <path d="M718 748 v-12 M718 852 v12 M666 800 h-12 M770 800 h12"/>
-                <g stroke="#C7017F" stroke-width="5">
-                  <circle cx="718" cy="787" r="12"/>
-                  <path d="M696 824 a22 22 0 0 1 44 0"/>
-                </g>
-
-                <!-- чек-лист (низ) -->
-                <rect x="408" y="752" width="84" height="116" rx="10" fill="#F4F1EC"/>
-                <rect x="432" y="740" width="36" height="20" rx="7" fill="#232934" stroke="none"/>
-                <g stroke="#C7017F" stroke-width="5">
-                  <path d="M424 786 l8 8 14 -16 M424 818 l8 8 14 -16 M424 850 l8 8 14 -16"/>
-                </g>
-                <path d="M458 782 h22 M458 814 h22 M458 846 h22" stroke-width="3.5"/>
-
-                <!-- дом (низ-лево) -->
-                <ellipse cx="195" cy="810" rx="115" ry="64" fill="#E9E4DB" stroke="none"/>
-                <rect x="135" y="755" width="95" height="84" fill="#F4F1EC"/>
-                <rect x="160" y="727" width="70" height="28" fill="#F4F1EC"/>
-                <path d="M128 755 h110" stroke-width="5"/>
-                <rect x="150" y="771" width="28" height="34"/>
-                <path d="M164 771 v34 M150 788 h28" stroke-width="2.5"/>
-                <rect x="196" y="771" width="12" height="12"/><rect x="214" y="771" width="12" height="12"/>
-                <path d="M196 839 v-26 h24 v26"/>
-                <circle cx="282" cy="812" r="14" fill="#F4F1EC"/>
-                <path d="M282 826 v13"/>
-                <path d="M118 839 H302" stroke-width="5"/>
-
-                <!-- декор -->
-                <g fill="#B8B2A7" stroke="none">
-                  <circle cx="80" cy="290" r="4"/><circle cx="98" cy="290" r="4"/><circle cx="116" cy="290" r="4"/>
-                  <circle cx="80" cy="308" r="4"/><circle cx="98" cy="308" r="4"/><circle cx="116" cy="308" r="4"/>
-                  <circle cx="80" cy="326" r="4"/><circle cx="98" cy="326" r="4"/><circle cx="116" cy="326" r="4"/>
-                  <circle cx="795" cy="880" r="4"/><circle cx="813" cy="880" r="4"/><circle cx="831" cy="880" r="4"/>
-                  <circle cx="795" cy="898" r="4"/><circle cx="813" cy="898" r="4"/><circle cx="831" cy="898" r="4"/>
-                </g>
-                <path d="M636 330 h20 M664 330 h10 M330 730 h18 M356 730 h8" stroke-width="3.5" opacity=".7"/>
-
-                <!-- нижняя линия -->
-                <path d="M85 912 H815" stroke-width="4"/>
-                <circle cx="600" cy="912" r="8" fill="#232934" stroke="none"/>
-                <circle cx="676" cy="912" r="8" fill="#C7017F" stroke="none"/>
-                <circle cx="748" cy="912" r="8" fill="#B8B2A7" stroke="none"/>
-              </svg>
+                </div>
+              </div>
+              <div class="slides__dots" data-slide-dots aria-label="Навигация по слайдам"></div>
+              <div class="slides__nav">
+                <button class="slides__btn" data-slide-prev aria-label="Предыдущий слайд">↑</button>
+                <span class="slides__count"><b data-slide-i>1</b> / <span data-slide-n>3</span></span>
+                <button class="slides__btn" data-slide-next aria-label="Следующий слайд">↓</button>
+              </div>
+              <p class="slides__hint">Прокрутка колесом · стрелки ↑ ↓ · клик по точкам</p>
             </div>
           </div>
         </section>
@@ -560,7 +496,7 @@
         </button>
         <section class="card__page" hidden>
           <div class="page__bar">
-            <button class="page__back" data-back>← Назад</button>
+            <button class="page__back" data-back aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6 9 12l6 6"/></svg></button>
             <span class="page__tag">03 · Расписание</span>
           </div>
           <div class="page__body">
@@ -593,7 +529,7 @@
         </button>
         <section class="card__page" hidden>
           <div class="page__bar">
-            <button class="page__back" data-back>← Назад</button>
+            <button class="page__back" data-back aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6 9 12l6 6"/></svg></button>
             <span class="page__tag">04 · Дорожная карта</span>
           </div>
           <div class="page__body page__body--rmap">
@@ -679,7 +615,7 @@
         </button>
         <section class="card__page" hidden>
           <div class="page__bar">
-            <button class="page__back" data-back>← Назад</button>
+            <button class="page__back" data-back aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6 9 12l6 6"/></svg></button>
             <span class="page__tag">05 · Примеры использования ИИ</span>
           </div>
           <div class="page__body">
@@ -693,8 +629,8 @@
     </div>
   </main>
 
-  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/Flip.min.js"></script>
-  <script src="js/main.js?v=11"></script>
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/Flip.min.js" defer></script>
+  <script src="js/main.js?v=12" defer></script>
 </body>
 </html>

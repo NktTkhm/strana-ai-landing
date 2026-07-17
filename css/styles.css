@@ -67,7 +67,9 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 /* — Логотип-марка — */
 .mark { position: fixed; top: clamp(16px,2.4vw,26px); left: var(--gutter); z-index: 200; display: flex; align-items: center; gap: 12px; padding: 16px; margin: -16px; }
 .mark__logo { display: block; width: clamp(150px,13vw,190px); aspect-ratio: 834/56; background: var(--logo-img) no-repeat left center; background-size: contain; }
-.mark__tag { font-weight: 700; font-size: 11px; letter-spacing: .04em; padding: 3px 8px; border-radius: 6px; background: var(--accent); color: #fff; line-height: 1; }
+.mark__home { display: block; }
+.mark__tag { font-weight: 700; font-size: 11px; letter-spacing: .04em; padding: 3px 8px; border-radius: 6px; background: var(--accent); color: #fff; line-height: 1; text-decoration: none; transition: opacity .2s var(--ease); }
+.mark__tag:hover { opacity: .88; }
 @media (max-width: 560px){ .mark__tag { display: none; } .mark__logo { width: 140px; } }
 body.is-open .mark { opacity: 0; pointer-events: none; transition: opacity .3s var(--ease); }
 
@@ -194,13 +196,53 @@ body.is-open .theme { opacity: 0; pointer-events: none; }
   left: 0;
   right: 0;
   z-index: 120;
-  background: color-mix(in srgb, var(--bg) 68%, transparent);
-  backdrop-filter: blur(16px) saturate(1.15);
-  -webkit-backdrop-filter: blur(16px) saturate(1.15);
-  border-bottom: 1px solid var(--hair);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 12px;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
+  pointer-events: none;
+}
+.card.is-open .card__page:has(.page__body--slides) .page__back {
+  pointer-events: auto;
+  margin: 0;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.card.is-open .card__page:has(.page__body--slides) .page__back svg {
+  width: 16px;
+  height: 16px;
+}
+.card.is-open .card__page:has(.page__body--slides) .page__tag {
+  pointer-events: auto;
+  margin: 0;
+  padding: 2px 0;
+  font-size: 10px;
+  letter-spacing: .12em;
+  background: transparent;
 }
 .page__bar { position: sticky; top: 0; z-index: 4; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: clamp(18px,2.2vw,26px) var(--gutter); background: var(--bar-scrim); backdrop-filter: blur(4px); }
-.page__back { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; padding: 10px 18px; border-radius: 100px; border: 1px solid var(--hair); background: var(--chip); color: var(--fg); transition: border-color .3s, background .3s; }
+.page__back {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--hair);
+  background: var(--chip);
+  color: var(--fg);
+  transition: border-color .3s, background .3s;
+}
+.page__back svg { width: 18px; height: 18px; }
 .page__back:hover { border-color: var(--fg); }
 .page__tag { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--kicker-c); }
 
@@ -368,14 +410,14 @@ body.is-open .theme { opacity: 0; pointer-events: none; }
 
 /* Слайд на ровно один экран (презентационный) */
 .slides--tape .slide--fit {
-  --slide-bar: 68px;
+  --slide-bar: 22px;
   --slide-nav: 52px;
   height: 100svh;
   min-height: 100svh;
   max-height: 100svh;
   overflow: hidden;
   padding:
-    calc(var(--slide-bar) + 4px)
+    calc(var(--slide-bar) + 2px)
     clamp(32px, 4.5vw, 88px)
     calc(var(--slide-nav) + 8px);
   box-sizing: border-box;
@@ -620,6 +662,157 @@ body.is-open .theme { opacity: 0; pointer-events: none; }
 @media (prefers-reduced-motion: reduce) {
   .kdt__card { transition: none; }
   .kdt__card:hover { transform: none; }
+}
+
+/* — Приветствие: Цель / Процесс / Результат — */
+.kdt--cpr {
+  grid-template-rows: minmax(0, 1fr);
+  align-content: center;
+}
+.kdt--cpr .kdt__row {
+  --kdt-size: min(
+    44vh,
+    26vw,
+    calc((100% - 2 * var(--kdt-mul-w) - 4 * var(--kdt-gap)) / 3),
+    400px
+  );
+}
+.kdt--cpr .kdt__card {
+  justify-content: flex-start;
+  gap: clamp(16px, 2.4vh, 28px);
+  padding: clamp(24px, 3.2vh, 40px);
+}
+.kdt--cpr .kdt__name {
+  font-size: clamp(28px, 4vh, 48px);
+  font-weight: 600;
+  letter-spacing: -.02em;
+}
+.kdt__text {
+  margin: 0;
+  font-size: clamp(16px, 2.1vh, 24px);
+  line-height: 1.35;
+  color: var(--fg-muted);
+}
+
+/* — Приветствие: слайд 01 (lead на всю ширину, крупная картинка) — */
+.slide--welcome .slide__canvas {
+  gap: clamp(14px, 2.2vh, 22px);
+}
+.slide--welcome .slide__kicker {
+  margin-bottom: clamp(4px, .6vh, 8px);
+}
+.slide--welcome .slide__title {
+  margin-bottom: clamp(10px, 1.4vh, 16px);
+}
+.slide--welcome .slide__lead {
+  max-width: none;
+  width: 100%;
+  font-size: clamp(18px, 2.2vh, 28px);
+  line-height: 1.32;
+  margin-bottom: 0;
+}
+.slide--welcome .slide__grid {
+  grid-template-columns: minmax(0, 1.85fr) minmax(0, .9fr);
+  gap: clamp(20px, 2.8vw, 40px);
+}
+.slide--welcome .slide__figure {
+  justify-content: stretch;
+}
+.slide--welcome .slide__figure img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border-radius: 14px;
+}
+.slide--welcome .slide__points {
+  gap: clamp(12px, 2vh, 20px);
+}
+.slide--welcome .slide__points li {
+  font-size: clamp(18px, 2.1vh, 26px);
+}
+
+/* — Приветствие: Правила мероприятия (те же карточки, что на слайде 03) — */
+.slide--rules .slide__kicker {
+  margin-bottom: clamp(4px, .6vh, 8px);
+}
+.slide--rules .slide__title {
+  margin-bottom: 0;
+  max-width: none;
+}
+.slide--rules .slide__canvas {
+  gap: clamp(18px, 2.8vh, 28px);
+  grid-template-rows: auto minmax(0, 1fr);
+}
+.kdt--rules .kdt__card::before {
+  display: none;
+}
+.kdt--rules .kdt__list li::before {
+  content: "•";
+  font-weight: 700;
+}
+.kdt--rules.kdt--cpr .kdt__row {
+  --kdt-size: min(
+    44vh,
+    26vw,
+    calc((100% - 2 * var(--kdt-gap)) / 3),
+    400px
+  );
+}
+.kdt--rules .kdt__list li {
+  color: var(--fg);
+}
+.kdt__card--need {
+  border-color: color-mix(in srgb, #9fd46a 55%, var(--hair));
+  background: linear-gradient(165deg, rgba(186, 230, 140, .38) 0%, rgba(150, 200, 110, .2) 100%);
+}
+:root[data-theme="light"] .kdt__card--need {
+  background: linear-gradient(165deg, rgba(210, 238, 170, .88) 0%, rgba(186, 222, 148, .68) 100%);
+}
+.kdt__card--need .kdt__name { color: #8ecf5a; }
+.kdt__card--need .kdt__list li::before { color: #6fa83a; }
+.kdt__card--need:hover {
+  border-color: color-mix(in srgb, #9fd46a 65%, var(--hair));
+  box-shadow: 0 24px 56px color-mix(in srgb, #9fd46a 22%, transparent);
+}
+.kdt__card--no {
+  border-color: color-mix(in srgb, var(--accent-r) 45%, var(--hair));
+  background:
+    linear-gradient(165deg, color-mix(in srgb, var(--accent-r) 12%, var(--surface)) 0%, color-mix(in srgb, var(--surface) 72%, transparent) 100%);
+}
+.kdt__card--no .kdt__name { color: color-mix(in srgb, var(--accent-r) 85%, #fff); }
+.kdt__card--no .kdt__list li::before { color: var(--accent-r); }
+.kdt__card--no:hover {
+  border-color: color-mix(in srgb, var(--accent-r) 55%, var(--hair));
+  box-shadow: 0 24px 56px color-mix(in srgb, var(--accent-r) 18%, transparent);
+}
+
+/* — Приветствие: отступы заголовок/кикер на слайдах 02–03 — */
+.slide--cpr .slide__kicker,
+.slide--formula.slide--cpr .slide__kicker {
+  margin-bottom: clamp(4px, .6vh, 8px);
+}
+.slide--cpr .slide__title,
+.slide--formula.slide--cpr .slide__title {
+  margin-bottom: 0;
+}
+.slide--cpr .slide__canvas,
+.slide--formula.slide--cpr .slide__canvas {
+  gap: clamp(18px, 2.8vh, 28px);
+}
+
+@media (max-width: 900px) {
+  .slide--welcome .slide__grid {
+    grid-template-columns: 1fr;
+  }
+  .slide--welcome .slide__figure {
+    max-height: 42vh;
+  }
+  .slide--welcome .slide__figure img {
+    object-fit: cover;
+    max-height: 42vh;
+  }
 }
 
 /* — Слайд 04: архитектура ИИ — */
