@@ -284,6 +284,48 @@
     mo.observe(pageEl, { attributes: true, attributeFilter: ["hidden"] });
   });
 
+  /* ---------- Слайд 08: последовательное появление шагов ---------- */
+  document.querySelectorAll(".slide--nobar").forEach((slide) => {
+    const flow = slide.querySelector(".nobar__flow");
+    if (!flow) return;
+    const steps = flow.querySelectorAll(".nobar__step");
+    const arrows = flow.querySelectorAll(".nobar__arrow");
+    const under = slide.querySelector(".nobar__under");
+    const warn = slide.querySelector(".nobar__warn");
+    let played = false;
+
+    if (!reduced && window.gsap) {
+      gsap.set([...steps, ...arrows, under, warn].filter(Boolean), { opacity: 0, y: 18 });
+    }
+
+    const play = () => {
+      if (played || reduced || !window.gsap) return;
+      played = true;
+      const tl = gsap.timeline();
+      tl.to(steps, { opacity: 1, y: 0, duration: 0.55, stagger: 0.16, ease: "power3.out" });
+      if (arrows.length) {
+        tl.to(arrows, { opacity: 1, y: 0, duration: 0.4, stagger: 0.16, ease: "power3.out" }, "-=0.35");
+      }
+      if (under) tl.to(under, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, "-=0.2");
+      if (warn) tl.to(warn, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, "-=0.25");
+    };
+
+    const reset = () => {
+      played = false;
+      if (!reduced && window.gsap) {
+        gsap.set([...steps, ...arrows, under, warn].filter(Boolean), { opacity: 0, y: 0 });
+      }
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting && e.intersectionRatio >= 0.3) play();
+        else if (!e.isIntersecting) reset();
+      });
+    }, { threshold: [0, 0.3, 0.55] });
+    io.observe(slide);
+  });
+
   /* ---------- Матрица сравнения: каскадное появление ---------- */
   document.querySelectorAll(".slide--vs").forEach((slide) => {
     const items = slide.querySelectorAll(".vs__head, .vs__direction, .vs__card, .vs__foot");
