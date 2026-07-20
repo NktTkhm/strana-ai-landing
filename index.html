@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=49" />
+  <link rel="stylesheet" href="css/styles.css?v=57" />
 </head>
 <body>
   <div class="mark">
@@ -89,37 +89,69 @@
                 <div class="slides__track" data-slides-track>
 
                   <!-- Слайд 1 — из чего состоит ИИ -->
-                  <section class="slide slide--fit" data-slide>
+                  <section class="slide slide--fit slide--terms" data-slide>
                     <div class="slide__canvas">
                       <div class="slide__head">
                         <p class="slide__kicker" data-r>Слайд 01 · Карта понятий</p>
                         <h2 class="slide__title" data-r>Из чего состоит искусственный интеллект</h2>
-                        <p class="slide__lead" data-r>Договоримся о терминах: внизу — данные и модели, наверху — системы, которые сами доводят задачу до результата.</p>
+                        <p class="slide__lead" data-r>Договоримся о терминах</p>
                       </div>
                       <div class="slide__grid">
                         <figure class="slide__figure" data-r>
-                          <img src="assets/slide-ai-ecosystem.png" width="1024" height="590" alt="Схема: Data Science → ML → ИИ → LLM, генеративный ИИ и ИИ-агент" loading="lazy" />
+                          <img src="assets/slide-ai-practice.png" width="1024" height="702" alt="Схема: как ИИ работает на практике — модели, интерфейс, агент, человек и данные" loading="lazy" />
                         </figure>
                         <ul class="slide__points" data-r>
-                          <li><strong>Фундамент.</strong> Data Science и ML извлекают закономерности из данных — без этого верхние уровни не работают.</li>
-                          <li><strong>Проявления.</strong> LLM и генеративный ИИ создают контент, но сами не ведут бизнес-процесс.</li>
-                          <li><strong>Действие.</strong> Агент = модель + память + инструменты + цель. Здесь ИИ входит в процессы Страны.</li>
+                          <li><strong>Модель</strong> — это программа, которую заранее обучили на большом количестве примеров, чтобы она могла решать похожие задачи сама: понимать текст, узнавать объекты на фото, прогнозировать сроки или генерировать ответ.</li>
+                          <li><strong>Агент</strong> — это ИИ, который не только отвечает на вопрос, а сам выполняет задачу: ищет информацию, запускает действия, проверяет результат и двигается к цели.</li>
+                          <li><strong>RAG</strong> — это способ отвечать не из общей «памяти» модели, а с опорой на ваши документы: система сначала находит нужные файлы, а потом модель формулирует ответ по ним.</li>
+                          <li><strong>Промпт</strong> — это текст вашего запроса к модели: что нужно сделать, в каком виде и с какими условиями.</li>
                         </ul>
                       </div>
                     </div>
                   </section>
 
-                  <!-- Слайд 2 — путь к эффективному внедрению ИИ -->
-                  <section class="slide slide--fit slide--path" data-slide>
+                  <!-- Слайд 2 — выбор LLM-модели -->
+                  <section class="slide slide--fit slide--llm" data-slide>
                     <div class="slide__canvas">
                       <div class="slide__head">
-                        <p class="slide__kicker" data-r>Слайд 02 · Внедрение</p>
-                        <h2 class="slide__title" data-r>Путь к эффективному внедрению ИИ</h2>
-                        <p class="slide__lead" data-r>Три барьера по порядку: технологии → данные → культура. Пропустить этап нельзя — только последовательное преодоление.</p>
+                        <p class="slide__kicker" data-r>Слайд 02 · Выбор модели</p>
+                        <h2 class="slide__title" data-r>LLM-модели и как их выбрать</h2>
+                        <p class="slide__lead" data-r>Для разных задач проходят разные модели</p>
                       </div>
                       <div class="slide__grid">
                         <figure class="slide__figure" data-r>
-                          <img src="assets/slide-ai-path.png" width="1024" height="618" alt="Путь к эффективному внедрению ИИ: технологии, данные, культура" loading="lazy" />
+                          <img src="assets/slide-ai-llm-choice.png" width="1024" height="703" alt="Схема: чем отличаются LLM-модели и по каким параметрам их выбирать" loading="lazy" />
+                        </figure>
+                        <div class="slide__points slide__choice" data-r>
+                          <h3>Параметры выбора модели для задачи</h3>
+                          <ol>
+                            <li>Контекст</li>
+                            <li>Размер модели</li>
+                            <li>Работа с инструментами</li>
+                            <li>Текст / мультимодальность</li>
+                            <li>Качество и язык</li>
+                            <li>Открытая / закрытая</li>
+                            <li>Безопасность данных</li>
+                            <li>Цена</li>
+                            <li>Скорость</li>
+                            <li>Подходит ли под задачу (RAG / агенты / интеграции)</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Слайд 3 — путь к эффективному внедрению ИИ -->
+                  <section class="slide slide--fit slide--path" data-slide>
+                    <div class="slide__canvas">
+                      <div class="slide__head">
+                        <p class="slide__kicker" data-r>Слайд 03 · Внедрение</p>
+                        <h2 class="slide__title" data-r>Путь к эффективному внедрению ИИ</h2>
+                        <p class="slide__lead" data-r>Пропустить барьер нельзя, только последовательное преодоление<br>но можно подготовится заранее к следующему барьеру</p>
+                      </div>
+                      <div class="slide__grid">
+                        <figure class="slide__figure" data-r>
+                          <img src="assets/slide-ai-path-updated.png" width="1024" height="703" alt="Путь к эффективному внедрению ИИ: технологии, данные, культура" loading="lazy" />
                         </figure>
                         <ul class="slide__points" data-r>
                           <li><strong>1. Технологии.</strong> Инфраструктура, серверы, модели ИИ и API — фундамент, без которого дальше не поехать.</li>
@@ -129,11 +161,11 @@
                       </div>
                     </div>
                   </section>
-                  <!-- Слайд 3 — произведение, а не сумма (К × Д × Т) -->
+                  <!-- Слайд 4 — произведение, а не сумма (К × Д × Т) -->
                   <section class="slide slide--fit slide--formula" data-slide>
                     <div class="slide__canvas">
                       <div class="slide__head">
-                        <p class="slide__kicker" data-r>Слайд 03 · Формула</p>
+                        <p class="slide__kicker" data-r>Слайд 04 · Формула</p>
                         <h2 class="slide__title" data-r>Произведение, а не сумма</h2>
                       </div>
                       <div class="kdt" data-kdt>
@@ -172,11 +204,11 @@
                       </div>
                     </div>
                   </section>
-                  <!-- Слайд 4 — архитектура ИИ в Стране -->
+                  <!-- Слайд 5 — архитектура ИИ в Стране -->
                   <section class="slide slide--fit slide--arch" data-slide>
                     <div class="slide__canvas">
                       <div class="slide__head">
-                        <p class="slide__kicker" data-r>Слайд 04 · Архитектура</p>
+                        <p class="slide__kicker" data-r>Слайд 05 · Архитектура</p>
                         <h2 class="slide__title" data-r>Архитектура ИИ в Стране</h2>
                         <p class="slide__lead" data-r>Единая платформа: от инфраструктуры и данных до агентов в бизнес-процессах. Не набор разрозненных пилотов — целостная система с общими правилами.</p>
                       </div>
@@ -214,11 +246,11 @@
                       </div>
                     </div>
                   </section>
-                  <!-- Слайд 5 — Мир vs Страна -->
+                  <!-- Слайд 6 — Мир vs Страна -->
                   <section class="slide slide--fit slide--vs" data-slide>
                     <div class="slide__canvas">
                       <div class="slide__head">
-                        <p class="slide__kicker" data-r>Слайд 05 · Сравнение</p>
+                        <p class="slide__kicker" data-r>Слайд 06 · Сравнение</p>
                         <h2 class="slide__title" data-r>Мир vs Страна</h2>
                         <p class="slide__lead" data-r>Сравниваем зрелость по ключевым направлениям. Оценки и формулировки уточним — пока зафиксирован первый показатель.</p>
                       </div>
@@ -253,11 +285,11 @@
                       </div>
                     </div>
                   </section>
-                  <!-- Слайд 6 — технологии не должны быть преградой -->
+                  <!-- Слайд 7 — технологии не должны быть преградой -->
                   <section class="slide slide--fit slide--nobar" data-slide>
                     <div class="slide__canvas">
                       <div class="slide__head">
-                        <p class="slide__kicker" data-r>Слайд 06 · Доступность</p>
+                        <p class="slide__kicker" data-r>Слайд 07 · Доступность</p>
                         <h2 class="slide__title" data-r>Технологии не должны быть преградой</h2>
                         <p class="slide__lead" data-r>Технология ускоряет решение задачи, а не становится отдельным проектом. Сложность остаётся в платформе — сотрудник работает с результатом.</p>
                       </div>
@@ -305,11 +337,11 @@
                       </div>
                     </div>
                   </section>
-                  <!-- Слайд 7 — данные: три ловушки -->
+                  <!-- Слайд 8 — данные: три ловушки -->
                   <section class="slide slide--fit slide--data" data-slide>
                     <div class="slide__canvas">
                       <div class="slide__head">
-                        <p class="slide__kicker" data-r>Слайд 07 · Данные</p>
+                        <p class="slide__kicker" data-r>Слайд 08 · Данные</p>
                         <h2 class="slide__title" data-r>Данные</h2>
                         <p class="slide__lead" data-r>Три типичные ловушки — любая из них блокирует ИИ не хуже, чем полное отсутствие данных.</p>
                       </div>
@@ -329,12 +361,6 @@
                     </div>
                   </section>
                   <section class="slide" data-slide>
-                    <p class="slide__kicker" data-r>Слайд 08</p>
-                    <h2 class="slide__title" data-r>{{Заголовок слайда 08}}</h2>
-                    <p class="slide__lead" data-r>{{Краткий тезис или вводная фраза.}}</p>
-                    <div class="slide__zone" data-r><p class="slide__ph">{{Контент слайда — текст, схема, список, цифры.}}</p></div>
-                  </section>
-                  <section class="slide" data-slide>
                     <p class="slide__kicker" data-r>Слайд 09</p>
                     <h2 class="slide__title" data-r>{{Заголовок слайда 09}}</h2>
                     <p class="slide__lead" data-r>{{Краткий тезис или вводная фраза.}}</p>
@@ -346,13 +372,19 @@
                     <p class="slide__lead" data-r>{{Краткий тезис или вводная фраза.}}</p>
                     <div class="slide__zone" data-r><p class="slide__ph">{{Контент слайда — текст, схема, список, цифры.}}</p></div>
                   </section>
+                  <section class="slide" data-slide>
+                    <p class="slide__kicker" data-r>Слайд 11</p>
+                    <h2 class="slide__title" data-r>{{Заголовок слайда 11}}</h2>
+                    <p class="slide__lead" data-r>{{Краткий тезис или вводная фраза.}}</p>
+                    <div class="slide__zone" data-r><p class="slide__ph">{{Контент слайда — текст, схема, список, цифры.}}</p></div>
+                  </section>
 
                 </div>
               </div>
               <div class="slides__dots" data-slide-dots aria-label="Навигация по слайдам"></div>
               <div class="slides__nav">
                 <button class="slides__btn" data-slide-prev aria-label="Предыдущий слайд">↑</button>
-                <span class="slides__count"><b data-slide-i>1</b> / <span data-slide-n>10</span></span>
+                <span class="slides__count"><b data-slide-i>1</b> / <span data-slide-n>11</span></span>
                 <button class="slides__btn" data-slide-next aria-label="Следующий слайд">↓</button>
               </div>
               <p class="slides__hint">Прокрутка колесом · стрелки ↑ ↓ · клик по точкам</p>
