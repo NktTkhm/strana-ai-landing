@@ -284,6 +284,26 @@
     mo.observe(pageEl, { attributes: true, attributeFilter: ["hidden"] });
   });
 
+  /* ---------- Матрица сравнения: каскадное появление ---------- */
+  document.querySelectorAll(".slide--vs").forEach((slide) => {
+    const items = slide.querySelectorAll(".vs__head, .vs__direction, .vs__card, .vs__foot");
+    if (!items.length) return;
+
+    items.forEach((el, i) => el.style.setProperty("--i", i));
+
+    if (reduced) {
+      slide.classList.add("is-vs-play");
+      return;
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        slide.classList.toggle("is-vs-play", e.isIntersecting && e.intersectionRatio >= 0.3);
+      });
+    }, { threshold: [0, 0.3, 0.55] });
+    io.observe(slide);
+  });
+
   /* ---------- Полноэкранный просмотр картинок на слайдах ---------- */
   let closeImgZoom = null;
 

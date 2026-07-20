@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=57" />
+  <link rel="stylesheet" href="css/styles.css?v=64" />
 </head>
 <body>
   <div class="mark">
@@ -251,36 +251,47 @@
                     <div class="slide__canvas">
                       <div class="slide__head">
                         <p class="slide__kicker" data-r>Слайд 06 · Сравнение</p>
-                        <h2 class="slide__title" data-r>Мир vs Страна</h2>
-                        <p class="slide__lead" data-r>Сравниваем зрелость по ключевым направлениям. Оценки и формулировки уточним — пока зафиксирован первый показатель.</p>
+                        <h2 class="slide__title" data-r>Страна и мир</h2>
+                        <p class="slide__lead" data-r>Сравниваем зрелость по ключевым направлениям. Разумный уровень — достаточный для масштабирования бизнес-эффекта без избыточной сложности.</p>
                       </div>
                       <div class="vs" data-r>
-                        <div class="vs__table">
-                          <div class="vs__row vs__row--head">
-                            <span class="vs__metric">Направление</span>
-                            <span class="vs__col vs__col--world">Мир</span>
-                            <span class="vs__col vs__col--strana">Страна</span>
-                          </div>
-                          <div class="vs__row">
-                            <span class="vs__metric">Инфраструктура и технологии</span>
-                            <span class="vs__col vs__col--world"><span class="vs__ph">—</span></span>
-                            <span class="vs__col vs__col--strana"><span class="vs__pct">100%</span></span>
-                          </div>
-                          <div class="vs__row vs__row--mute">
-                            <span class="vs__metric">Данные</span>
-                            <span class="vs__col vs__col--world"><span class="vs__ph">{{уточним}}</span></span>
-                            <span class="vs__col vs__col--strana"><span class="vs__ph">{{уточним}}</span></span>
-                          </div>
-                          <div class="vs__row vs__row--mute">
-                            <span class="vs__metric">Культура и внедрение</span>
-                            <span class="vs__col vs__col--world"><span class="vs__ph">{{уточним}}</span></span>
-                            <span class="vs__col vs__col--strana"><span class="vs__ph">{{уточним}}</span></span>
-                          </div>
-                          <div class="vs__row vs__row--mute">
-                            <span class="vs__metric">Кейсы и эффект</span>
-                            <span class="vs__col vs__col--world"><span class="vs__ph">{{уточним}}</span></span>
-                            <span class="vs__col vs__col--strana"><span class="vs__ph">{{уточним}}</span></span>
-                          </div>
+                        <div class="vs__matrix">
+                          <div class="vs__corner"></div>
+                          <div class="vs__head vs__head--strana">Страна Девелопмент сейчас</div>
+                          <div class="vs__head">Разумный уровень</div>
+                          <div class="vs__head">Как в мире</div>
+
+                          <div class="vs__direction"><span class="vs__num">01</span><strong>Модели ИИ</strong><span>«мозг»: понимает запрос и создаёт ответ</span></div>
+                          <article class="vs__card vs__card--strana">Свой набор для всех сотрудников:<br>Gemma 4, gpt-oss-120b — для задач в конфиденциальном контуре, GLM-5.2 (сложная логика) + GPT/Claude/Gemini/DeepSeek/Qwen по необходимости</article>
+                          <article class="vs__card">Открытые модели + топ по API под задачу</article>
+                          <article class="vs__card">Claude Opus 4.8, GPT-5.5, Gemini 3 Pro — максимум качества, дорого</article>
+
+                          <div class="vs__direction"><span class="vs__num">02</span><strong>Агенты</strong><span>ИИ сам выполняет задачу</span></div>
+                          <article class="vs__card vs__card--strana">37 агентов в бизнес-процессах компании:<br>БЦТшка, помощник маркетолога, онбординг «Я — новый сотрудник», «Ищем землю»…</article>
+                          <article class="vs__card">Узкие агенты под 3-5 процессов</article>
+                          <article class="vs__card">Автономные мульти-агенты; MCP/A2A</article>
+
+                          <div class="vs__direction"><span class="vs__num">03</span><strong>База знаний (RAG)</strong><span>ответы по вашим документам</span></div>
+                          <article class="vs__card vs__card--strana">RAG по базе знаний, Confluence и Jira; омнипоиск.<br>Доступ к витринам Metabase — через MCP-сервер.</article>
+                          <article class="vs__card">Поиск по документам + векторная база + отбор</article>
+                          <article class="vs__card">Гибридный поиск + reranking + агентный RAG, права доступа</article>
+
+                          <div class="vs__direction"><span class="vs__num">04</span><strong>Интерфейсы</strong><span>как люди пользуются ИИ</span></div>
+                          <article class="vs__card vs__card--strana">Open WebUI, OpenCode, Cursor, n8n, API для агентов; спец-сервисы (речевая аналитика 3iTech)</article>
+                          <article class="vs__card">Корп-чат + веб-интерфейс + API</article>
+                          <article class="vs__card">Единый слой: чат + голос + мобайл + API</article>
+
+                          <div class="vs__direction"><span class="vs__num">05</span><strong>Данные и инфраструктура</strong><span>где хранится и считается</span></div>
+                          <article class="vs__card vs__card--strana">DWH + RAG; развёрнуто в основном в облаке (экономичнее)</article>
+                          <article class="vs__card">Хранилище + векторная БД + облако/свой сервер</article>
+                          <article class="vs__card">Промышленные платформы + GPU; гибрид</article>
+
+                          <div class="vs__direction"><span class="vs__num">06</span><strong>Контроль и безопасность</strong><span>чтобы работало надёжно</span></div>
+                          <article class="vs__card vs__card--strana">Доступ к LLM по заявке под личной учётной записью; в конструкторе агентов — авторизация, роли, фильтрация коммерческой тайны и ПДн, изолированный запуск кода</article>
+                          <article class="vs__card">Роли, журналы, ручная проверка, базовые ограничители</article>
+                          <article class="vs__card">Автопроверки и ограничения, журнал аудита, политики доступа, тесты на уязвимости</article>
+
+                          <div class="vs__foot">Для бизнеса выигрывает не самый модный стек, а баланс: качество + цена + безопасность + скорость внедрения.</div>
                         </div>
                       </div>
                     </div>
@@ -663,6 +674,6 @@
 
   <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/Flip.min.js" defer></script>
-  <script src="js/main.js?v=13" defer></script>
+  <script src="js/main.js?v=14" defer></script>
 </body>
 </html>

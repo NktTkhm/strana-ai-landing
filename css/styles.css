@@ -948,83 +948,165 @@ body.is-open .theme { opacity: 0; pointer-events: none; }
   color: var(--fg-muted);
 }
 
-/* — Слайд 05: Мир vs Страна — */
-.slide--vs .slide__title { max-width: none; }
+/* — Слайд 06: Мир vs Страна — */
+.slides--tape .slide--fit.slide--vs {
+  padding-bottom: calc(var(--slide-nav) + 32px);
+}
+.slide--vs .slide__title {
+  max-width: none;
+  font-size: clamp(34px, 5vh, 62px);
+  margin-bottom: clamp(4px, .6vh, 8px);
+}
+.slide--vs .slide__lead {
+  max-width: none;
+  font-size: clamp(15px, 1.65vh, 20px);
+}
 .slide--vs .slide__canvas {
   grid-template-rows: auto minmax(0, 1fr);
+  gap: clamp(10px, 1.45vh, 16px);
 }
 .vs {
   flex: 1;
   min-height: 0;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   width: 100%;
+  overflow: hidden;
 }
-.vs__table {
-  width: min(100%, 980px);
-  display: flex;
-  flex-direction: column;
-  gap: clamp(8px, 1.2vh, 12px);
-}
-.vs__row {
+.vs__matrix {
+  width: 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(12px, 2vw, 24px);
+  grid-template-columns: minmax(140px, .62fr) minmax(0, 1.52fr) minmax(0, .95fr) minmax(0, 1.05fr);
+  grid-template-rows: auto repeat(6, minmax(0, 1fr)) auto;
+  gap: clamp(6px, .85vh, 10px) clamp(9px, 1vw, 15px);
+  font-size: clamp(16px, 1.75vh, 21px);
+  line-height: 1.16;
+}
+.vs__corner {
+  min-height: 1px;
+}
+.vs__head {
+  display: flex;
   align-items: center;
-  padding: clamp(16px, 2.2vh, 24px) clamp(20px, 2.5vw, 32px);
-  border-radius: 16px;
-  border: 1px solid var(--hair);
+  min-height: clamp(28px, 3.2vh, 38px);
+  padding: clamp(7px, .85vh, 10px) clamp(14px, 1.3vw, 20px);
+  border-radius: 12px;
   background: color-mix(in srgb, var(--surface) 78%, transparent);
-  backdrop-filter: blur(8px);
+  color: var(--fg-muted);
+  font-size: clamp(15px, 1.55vh, 19px);
+  font-weight: 700;
+  letter-spacing: .02em;
 }
-.vs__row--head {
-  background: transparent;
-  border-color: transparent;
-  padding-block: 0 clamp(8px, 1vh, 12px);
+.vs__head--strana {
+  color: #fff;
+  background: var(--grad);
 }
-.vs__row--head .vs__metric { visibility: hidden; }
-.vs__row--mute { opacity: .55; }
-.vs__metric {
-  font-size: clamp(18px, 2.2vh, 26px);
-  font-weight: 600;
-  line-height: 1.25;
+.vs__direction {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: clamp(8px, .8vw, 12px);
+  align-content: center;
+  min-width: 0;
   color: var(--fg);
 }
-.vs__col {
-  font-size: clamp(20px, 2.4vh, 30px);
-  line-height: 1.2;
-  text-align: center;
+.vs__direction strong {
+  display: block;
+  min-width: 0;
+  font-size: 1.12em;
+  font-weight: 700;
+  line-height: 1.05;
 }
-.vs__col--world {
-  font-weight: 500;
+.vs__direction span {
+  display: block;
+}
+.vs__direction > span:last-child {
+  grid-column: 2;
+  margin-top: 2px;
+  font-size: .8em;
+  line-height: 1.15;
   color: var(--fg-muted);
 }
-.vs__col--strana {
+.vs__num {
+  grid-row: 1 / 3;
+  align-self: center;
+  display: grid !important;
+  place-items: center;
+  width: clamp(32px, 2.9vw, 40px);
+  height: clamp(32px, 2.9vw, 40px);
+  border-radius: 50%;
+  background: var(--grad);
+  color: #fff !important;
   font-family: var(--display);
+  font-size: clamp(12px, 1.25vh, 16px);
+  font-weight: 700;
+}
+.vs__card {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  padding: clamp(7px, .8vh, 11px) clamp(12px, 1.15vw, 18px);
+  border-radius: 16px;
+  border: 1px solid var(--hair);
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .14);
+  color: var(--fg);
   font-weight: 600;
-  color: var(--accent);
+  overflow-wrap: anywhere;
 }
-.vs__row--head .vs__col {
-  font-family: var(--display);
-  font-size: clamp(22px, 2.8vh, 34px);
-  font-weight: 600;
-  letter-spacing: -.01em;
+.vs__card--strana {
+  border-color: color-mix(in srgb, var(--accent) 38%, var(--hair));
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--accent) 17%, var(--surface)), color-mix(in srgb, var(--accent-2) 9%, var(--surface)));
+  box-shadow: inset 3px 0 0 var(--accent), 0 16px 34px color-mix(in srgb, var(--accent) 13%, transparent);
 }
-.vs__row--head .vs__col--world { color: var(--fg-muted); }
-.vs__row--head .vs__col--strana { color: var(--accent); }
-.vs__pct {
-  display: inline-block;
-  padding: .12em .45em;
-  border-radius: 10px;
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+.vs__foot {
+  grid-column: 1 / -1;
+  align-self: end;
+  padding: clamp(8px, .95vh, 12px) clamp(16px, 1.5vw, 24px);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
+  color: var(--fg);
+  font-size: clamp(15px, 1.6vh, 19px);
+  font-weight: 700;
 }
-.vs__ph {
-  font-size: clamp(16px, 1.9vh, 22px);
-  font-weight: 500;
-  color: var(--fg-muted);
-  opacity: .7;
+.vs__head,
+.vs__direction,
+.vs__card,
+.vs__foot {
+  opacity: 0;
+  transform: translateY(14px);
+}
+.slide--vs.is-vs-play .vs__head,
+.slide--vs.is-vs-play .vs__direction,
+.slide--vs.is-vs-play .vs__card,
+.slide--vs.is-vs-play .vs__foot {
+  animation: vsItemIn .55s var(--ease) forwards;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+@keyframes vsItemIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vs__head,
+  .vs__direction,
+  .vs__card,
+  .vs__foot {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
 }
 
 /* — Слайд 06: технологии не преграда — */
