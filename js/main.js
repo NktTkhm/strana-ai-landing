@@ -421,4 +421,69 @@
   // Клик по логотипу возвращает на хаб
   const home = document.querySelector("[data-home]");
   if (home) home.addEventListener("click", (e) => { e.preventDefault(); if (openCard) close(); });
+
+  /* ---------- Слайд 11: SVG-коннекторы схемы «Витрины данных» ---------- */
+  (function martsWires() {
+    const SVGNS = "http://www.w3.org/2000/svg";
+    document.querySelectorAll("[data-marts]").forEach((root) => {
+      const svg = root.querySelector(".marts__wires");
+      const hub = root.querySelector(".marts__hub");
+      const heads = root.querySelectorAll(".marts__colhead");
+      const consumers = root.querySelectorAll(".marts__consumers span");
+      if (!svg || !hub) return;
+
+      const rel = (el, R) => {
+        const b = el.getBoundingClientRect();
+        return {
+          l: b.left - R.left, t: b.top - R.top,
+          r: b.right - R.left, btm: b.bottom - R.top,
+          cx: b.left - R.left + b.width / 2,
+          cy: b.top - R.top + b.height / 2,
+        };
+      };
+
+      const draw = () => {
+        const R = root.getBoundingClientRect();
+        if (R.width < 2 || R.height < 2) return; // блок скрыт
+        svg.querySelectorAll("path[data-wire]").forEach((p) => p.remove());
+        svg.setAttribute("viewBox", "0 0 " + R.width + " " + R.height);
+
+        const add = (d, arrow) => {
+          const p = document.createElementNS(SVGNS, "path");
+          p.setAttribute("d", d);
+          p.setAttribute("data-wire", "");
+          if (arrow) p.setAttribute("marker-end", "url(#martsArrow)");
+          svg.appendChild(p);
+        };
+
+        const H = rel(hub, R);
+
+        // ветвь к колонкам: вниз из хаба → горизонтальная шина → отводы со стрелками
+        if (heads.length) {
+          const cols = Array.from(heads).map((el) => rel(el, R));
+          const busY = Math.min.apply(null, cols.map((c) => c.t)) - 18;
+          add("M " + H.cx + " " + H.btm + " L " + H.cx + " " + busY);
+          const xs = cols.map((c) => c.cx).concat([H.cx]);
+          add("M " + Math.min.apply(null, xs) + " " + busY + " L " + Math.max.apply(null, xs) + " " + busY);
+          cols.forEach((c) => add("M " + c.cx + " " + busY + " L " + c.cx + " " + (c.t - 2), true));
+        }
+
+        // ветвь к потребителям: вправо из хаба → вертикальная шина → отводы со стрелками
+        if (consumers.length) {
+          const cons = Array.from(consumers).map((el) => rel(el, R));
+          const busX = Math.min.apply(null, cons.map((c) => c.l)) - 26;
+          add("M " + H.r + " " + H.cy + " L " + busX + " " + H.cy);
+          const ys = cons.map((c) => c.cy).concat([H.cy]);
+          add("M " + busX + " " + Math.min.apply(null, ys) + " L " + busX + " " + Math.max.apply(null, ys));
+          cons.forEach((c) => add("M " + busX + " " + c.cy + " L " + (c.l - 2) + " " + c.cy, true));
+        }
+      };
+
+      if (window.ResizeObserver) {
+        new ResizeObserver(() => draw()).observe(root);
+      }
+      window.addEventListener("resize", draw);
+      draw();
+    });
+  })();
 })();

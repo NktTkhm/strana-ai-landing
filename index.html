@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=68" />
+  <link rel="stylesheet" href="css/styles.css?v=75" />
 </head>
 <body>
   <div class="mark">
@@ -234,7 +234,7 @@
                       </div>
                       <div class="slide__grid">
                         <figure class="slide__figure" data-r>
-                          <img src="assets/slide-ai-platform-arch.png" width="1024" height="687" alt="Архитектура единой платформы Strana.AI" loading="lazy" />
+                          <img src="assets/slide-ai-platform-arch-v2.png" width="1024" height="687" alt="Архитектура единой платформы Strana.AI" loading="lazy" />
                         </figure>
                         <ul class="slide__points" data-r>
                           <li><strong>Слои, не острова.</strong> Каждый уровень связан контрактами и стандартами — без «чёрных ящиков» между командами.</li>
@@ -413,36 +413,74 @@
                         <h2 class="slide__title" data-r>Данные</h2>
                         <p class="slide__lead" data-r>Структурированные процессы позволяют собирать достаточное количество витрин</p>
                       </div>
-                      <div class="dataflow" data-r>
-                        <div class="dataflow__sources">
-                          <article class="dataflow__source">
-                            <h3>Строительство и договоры</h3>
-                            <p>Примеры будут добавлены</p>
-                          </article>
-                          <article class="dataflow__source">
-                            <h3>Продажи</h3>
-                            <p>Примеры будут добавлены</p>
-                          </article>
+                      <div class="marts" data-r data-marts>
+                        <svg class="marts__wires" aria-hidden="true">
+                          <defs>
+                            <marker id="martsArrow" class="marts__arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+                              <path d="M0,0 L10,5 L0,10 z"></path>
+                            </marker>
+                          </defs>
+                        </svg>
+                        <div class="marts__flow">
+                          <div class="marts__hub">Витрины данных</div>
+                          <div class="marts__cols">
+                            <div class="marts__col">
+                              <div class="marts__colhead">Строительство и договора</div>
+                              <div class="marts__examples">
+                                <p class="marts__examples-title">Примеры витрин</p>
+                                <ol class="marts__list">
+                                  <li><b>dm_mb_bld_contract</b><span>Договоры в АС Договоры: реестр договоров строительства и поставки, контрагенты и объекты, суммы и авансы, связь с ТЗ и тендером</span></li>
+                                  <li><b>dm_mb_bld_contract_item</b><span>Состав предмета договора: номенклатура и бюджетные статьи по договору для анализа закупок</span></li>
+                                  <li><b>dm_mb_bld_add_agr</b><span>Дополнительные соглашения к договорам: изменение условий, причины и суммы от ПМ, ГИП, РСУ, сроки и статусы</span></li>
+                                  <li><b>dm_mb_bld_task_contracts</b><span>Задачи по маршруту согласования договоров: исполнители и сроки, просроченные задачи, контроль прохождения маршрута</span></li>
+                                  <li><b>dm_mb_bld_tender</b><span>Тендерные процедуры на Портале партнёров: выбор подрядчика по объектам, ход процедуры и сроки, связь с ТЗ на СМР</span></li>
+                                  <li><b>dm_mb_bld_tender_request</b><span>Заявки подрядчиков на тендеры: сравнение цен и НДС, квалификация и рекомендации, победители аукциона</span></li>
+                                  <li><b>dm_mb_bld_tz_smr</b><span>Технические задания на СМР в 1С:ДО: подрядчик и тендер, смета и аванс, статус согласования и жизненный цикл БП</span></li>
+                                  <li><b>dm_mb_bld_tz_goods</b><span>Номенклатура товаров и услуг в составе ТЗ на СМР: закупаемые позиции и статьи БДДС</span></li>
+                                  <li><b>dm_mb_bld_tz_status</b><span>История статусов ТЗ на СМР: переходы между этапами согласования, динамика объёмов работ и материалов</span></li>
+                                  <li><b>dm_mb_bld_tz_tasks</b><span>Задачи по маршруту согласования ТЗ на СМР: исполнители и сроки, результат выполнения, связь с ТЗ</span></li>
+                                  <li><b>dm_mb_bld_mss_model</b><span>Расчёты стоимости строительства в MSS: сметная стоимость по ТЗ, разбивка работ и материалов, контроль утверждения</span></li>
+                                  <li><b>dm_mb_bld_fid_fact_contractor_employee</b><span>Посещаемость рабочих подрядчиков по Face ID: численность, смены и факт прохода за месяц по объекту и субподрядчику</span></li>
+                                  <li><b>dm_mb_bld_counterparty_contact</b><span>Контактные лица контрагентов в MDM: представители</span></li>
+                                </ol>
+                              </div>
+                            </div>
+                            <div class="marts__col">
+                              <div class="marts__colhead">Продажи</div>
+                              <div class="marts__examples">
+                                <p class="marts__examples-title">Примеры витрин</p>
+                                <ol class="marts__list">
+                                  <li><b>dm_mb_sls_amo_lead_w_add_attribute</b><span>Сделки продажи недвижимости в AmoCRM: аналитика воронки, объекты помещение, условия покупки и ДДУ, агентский канал</span></li>
+                                  <li><b>dm_mb_sls_amo_lead_status_history</b><span>История движения сделок по воронкам и этапам AmoCRM: смена этапа, переход между воронками, длительность на этапе</span></li>
+                                  <li><b>dm_mb_sls_amo_sales_metrics</b><span>Динамика метрик по этапам воронок продаж (Онлайн/Офлайн/КЦ) в разрезе домов и каналов продаж (агентские/прямые)</span></li>
+                                  <li><b>dm_mb_sls_1c_trade_payment</b><span>Поступившие платежи по сделкам AmoCRM из 1С Top</span></li>
+                                </ol>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <div class="dataflow__hub">
-                          <span class="dataflow__eyebrow">Единый слой</span>
-                          <strong>Витрины данных</strong>
-                          <span>проверенные и структурированные данные</span>
-                        </div>
-                        <div class="dataflow__outputs" aria-label="Потребители витрин данных">
-                          <span>Продажи</span>
-                          <span>Продажи</span>
-                          <span>Продажи</span>
-                          <span>Продажи</span>
+                        <div class="marts__consumers" aria-label="Потребители витрин данных">
+                          <span>Финансы/Казна</span>
+                          <span>HR/Кадры</span>
+                          <span>IT/Документооборот</span>
+                          <span>Девелопмент / ИСУП</span>
+                          <span>Сервисный центр</span>
                         </div>
                       </div>
                     </div>
                   </section>
-                  <section class="slide" data-slide>
-                    <p class="slide__kicker" data-r>Слайд 12</p>
-                    <h2 class="slide__title" data-r>{{Заголовок слайда 12}}</h2>
-                    <p class="slide__lead" data-r>{{Краткий тезис или вводная фраза.}}</p>
-                    <div class="slide__zone" data-r><p class="slide__ph">{{Контент слайда — текст, схема, список, цифры.}}</p></div>
+                  <!-- Слайд 12 — доверие к данным -->
+                  <section class="slide slide--fit slide--arch slide--imgfull" data-slide>
+                    <div class="slide__canvas">
+                      <div class="slide__head">
+                        <p class="slide__kicker" data-r>Слайд 12 · Данные</p>
+                        <h2 class="slide__title" data-r>Данные</h2>
+                        <p class="slide__lead" data-r>Доверие к данным — внутренний параметр</p>
+                      </div>
+                      <figure class="slide__figure" data-r>
+                        <img src="assets/slide-ai-trust.jpg" width="6544" height="4496" alt="Доверие к данным нельзя навязать: ИТ даёт инструменты, а доверие — внутренний параметр бизнес-подразделения" loading="lazy" />
+                      </figure>
+                    </div>
                   </section>
                   <section class="slide" data-slide>
                     <p class="slide__kicker" data-r>Слайд 13</p>
@@ -735,6 +773,6 @@
 
   <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/Flip.min.js" defer></script>
-  <script src="js/main.js?v=15" defer></script>
+  <script src="js/main.js?v=16" defer></script>
 </body>
 </html>

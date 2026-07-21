@@ -919,6 +919,20 @@ body.is-open .theme { opacity: 0; pointer-events: none; }
 
 /* — Слайд 04: архитектура ИИ — */
 .slide--arch .slide__title { max-width: none; }
+.slide--arch .slide__figure {
+  overflow: hidden;
+  border-radius: 12px;
+  isolation: isolate;
+}
+.slide--arch .slide__figure img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  clip-path: inset(0 round 12px);
+}
 .slide--fit .slide__figure--stack {
   align-items: center;
   justify-content: center;
@@ -1363,123 +1377,176 @@ body.is-open .theme { opacity: 0; pointer-events: none; }
 }
 
 /* — Слайд 11: витрины данных — */
-.dataflow {
+.marts {
+  --marts-line: color-mix(in srgb, var(--accent) 55%, var(--hair));
   position: relative;
   min-height: 0;
   height: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(230px, .85fr) minmax(0, .75fr);
-  align-items: center;
-  gap: clamp(32px, 4vw, 60px);
-  width: min(1320px, 100%);
+  grid-template-columns: minmax(0, 1fr) minmax(210px, 300px);
+  align-items: stretch;
+  gap: clamp(28px, 4vw, 70px);
+  width: min(1360px, 100%);
   margin-inline: auto;
 }
-.dataflow::before,
-.dataflow::after {
+
+/* — SVG-коннекторы: все линии выходят из карточки «Витрины данных» — */
+.marts__wires {
   position: absolute;
-  top: 50%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
-  color: var(--accent);
-  font-family: var(--display);
-  font-size: clamp(46px, 6vh, 72px);
-  font-weight: 300;
-  line-height: 1;
-  transform: translateY(-50%);
+  pointer-events: none;
+  overflow: visible;
 }
-.dataflow::before { content: "→"; left: 43%; }
-.dataflow::after { content: "→"; right: 22%; }
-.dataflow__sources {
+.marts__wires path {
+  fill: none;
+  stroke: var(--marts-line);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.marts__arrow path {
+  fill: var(--marts-line);
+  stroke: none;
+}
+
+/* — левая часть: хаб + две колонки-источника — */
+.marts__flow {
+  position: relative;
   z-index: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.marts__hub {
+  position: relative;
+  align-self: center;
+  padding: clamp(11px, 1.7vh, 18px) clamp(30px, 4vw, 56px);
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--hair));
+  border-radius: 16px;
+  background: linear-gradient(165deg, color-mix(in srgb, var(--surface) 92%, transparent), color-mix(in srgb, var(--surface) 70%, transparent));
+  box-shadow: inset 0 3px 0 var(--accent), 0 16px 40px color-mix(in srgb, var(--accent) 18%, transparent);
+  font-family: var(--display);
+  font-size: clamp(20px, 2.7vh, 32px);
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.marts__cols {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-top: clamp(34px, 5vh, 52px);
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(14px, 2vw, 24px);
+  gap: clamp(16px, 2.2vw, 34px);
 }
-.dataflow__source,
-.dataflow__hub,
-.dataflow__outputs span {
+.marts__col {
+  position: relative;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.marts__colhead {
+  flex: 0 0 auto;
+  padding: clamp(10px, 1.5vh, 16px) clamp(14px, 1.6vw, 22px);
   border: 1px solid color-mix(in srgb, var(--hair) 70%, var(--accent) 30%);
+  border-radius: 14px;
   background: linear-gradient(165deg, color-mix(in srgb, var(--surface) 92%, transparent), color-mix(in srgb, var(--surface) 70%, transparent));
-  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 10%, transparent), 0 16px 40px rgba(0, 0, 0, .22);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 10%, transparent), 0 10px 28px rgba(0, 0, 0, .18);
+  font-family: var(--display);
+  font-size: clamp(17px, 2.1vh, 26px);
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: center;
 }
-.dataflow__source {
-  min-height: clamp(250px, 33vh, 360px);
+.marts__examples {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  margin-top: clamp(12px, 1.6vh, 20px);
+  padding: clamp(12px, 1.7vh, 20px) clamp(14px, 1.6vw, 22px);
+  border: 1px solid var(--hair);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
+}
+.marts__examples-title {
+  margin: 0 0 clamp(8px, 1.2vh, 14px);
+  font-family: var(--display);
+  font-size: clamp(14px, 1.7vh, 20px);
+  font-weight: 600;
+  text-align: center;
+}
+.marts__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: mart;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(7px, 1vh, 12px);
+}
+.marts__list li {
+  counter-increment: mart;
+  font-size: clamp(11px, 1.35vh, 15px);
+  line-height: 1.32;
+  text-align: center;
+}
+.marts__list b {
+  display: block;
+  font-weight: 700;
+}
+.marts__list b::before {
+  content: counter(mart) " ";
+  color: var(--accent);
+}
+.marts__list span {
+  display: block;
+  color: var(--fg-muted);
+}
+
+/* — правая часть: потребители — */
+.marts__consumers {
+  position: relative;
+  z-index: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: clamp(18px, 2.4vh, 30px);
-  border-radius: 20px;
+  gap: clamp(12px, 1.8vh, 20px);
 }
-.dataflow__source h3 {
-  margin: 0;
-  font-family: var(--display);
-  font-size: clamp(19px, 2.3vh, 28px);
-  font-weight: 500;
-  line-height: 1.1;
-  overflow-wrap: anywhere;
-}
-.dataflow__source p {
-  margin: 0;
-  padding-top: clamp(18px, 3vh, 38px);
-  border-top: 1px dashed var(--hair);
-  color: var(--fg-muted);
-  font-size: clamp(15px, 1.7vh, 20px);
-}
-.dataflow__hub {
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: clamp(28px, 4vh, 48px) clamp(22px, 3vw, 38px);
-  border-color: color-mix(in srgb, var(--accent) 55%, var(--hair));
-  border-radius: 22px;
-  text-align: center;
-  box-shadow: inset 0 3px 0 var(--accent), 0 20px 48px color-mix(in srgb, var(--accent) 18%, transparent);
-}
-.dataflow__hub strong {
-  font-family: var(--display);
-  font-size: clamp(28px, 3.7vh, 46px);
-  font-weight: 500;
-  line-height: 1;
-}
-.dataflow__hub span:last-child {
-  color: var(--fg-muted);
-  font-size: clamp(15px, 1.7vh, 20px);
-  line-height: 1.3;
-}
-.dataflow__eyebrow {
-  color: var(--accent);
-  font-size: clamp(11px, 1.25vh, 14px);
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-.dataflow__outputs {
-  z-index: 1;
-  display: grid;
-  gap: clamp(12px, 1.6vh, 18px);
-}
-.dataflow__outputs span {
+.marts__consumers span {
+  position: relative;
   display: flex;
   align-items: center;
-  min-height: clamp(52px, 7vh, 76px);
-  padding: 0 clamp(18px, 2vw, 26px);
+  flex: 1 1 0;
+  padding: 0 clamp(16px, 1.6vw, 24px);
+  border: 1px solid color-mix(in srgb, var(--hair) 70%, var(--accent) 30%);
   border-radius: 14px;
+  background: linear-gradient(165deg, color-mix(in srgb, var(--surface) 92%, transparent), color-mix(in srgb, var(--surface) 70%, transparent));
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 10%, transparent), 0 10px 28px rgba(0, 0, 0, .18);
   font-family: var(--display);
-  font-size: clamp(18px, 2.1vh, 26px);
+  font-size: clamp(15px, 1.9vh, 23px);
   font-weight: 500;
+  line-height: 1.15;
 }
+
 @media (max-width: 900px) {
-  .dataflow {
+  .marts {
     grid-template-columns: 1fr;
     gap: 24px;
     overflow-y: auto;
   }
-  .dataflow::before,
-  .dataflow::after { display: none; }
-  .dataflow__sources { grid-template-columns: 1fr; }
-  .dataflow__source { min-height: 170px; }
-  .dataflow__outputs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .marts__wires { display: none; }
+  .marts__cols { margin-top: 12px; }
+  .marts__consumers span { min-height: 56px; }
 }
+
+/* Слайд-картинка во всю область: изображение по центру */
+.slide--imgfull .slide__figure { justify-content: center; }
 
 .slides--tape .slide__title { max-width: 18ch; }
 .slides--tape .slide__zone {
