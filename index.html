@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=75" />
+  <link rel="stylesheet" href="css/styles.css?v=81" />
 </head>
 <body>
   <div class="mark">
@@ -482,11 +482,195 @@
                       </figure>
                     </div>
                   </section>
-                  <section class="slide" data-slide>
-                    <p class="slide__kicker" data-r>Слайд 13</p>
-                    <h2 class="slide__title" data-r>{{Заголовок слайда 13}}</h2>
-                    <p class="slide__lead" data-r>{{Краткий тезис или вводная фраза.}}</p>
-                    <div class="slide__zone" data-r><p class="slide__ph">{{Контент слайда — текст, схема, список, цифры.}}</p></div>
+                  <!-- Слайд 13 — путь к внедрению ИИ -->
+                  <section class="slide slide--fit slide--arch slide--imgfull" data-slide>
+                    <div class="slide__canvas">
+                      <div class="slide__head">
+                        <p class="slide__kicker" data-r>Слайд 13 · Данные</p>
+                        <h2 class="slide__title slide__title--sm" data-r>Текущий уровень инфраструктуры данных позволяет принимать все требуемые решения</h2>
+                      </div>
+                      <figure class="slide__figure" data-r>
+                        <img src="assets/slide-ai-path-mountain.jpg" width="2200" height="1467" alt="Путь к эффективному внедрению ИИ: последовательное преодоление барьеров — технологии, данные, культура" loading="lazy" />
+                      </figure>
+                    </div>
+                  </section>
+
+                  <!-- Слайд 14 — от хаоса к решениям -->
+                  <section class="slide slide--fit slide--chaos slide--imgcontain" data-slide>
+                    <div class="slide__canvas">
+                      <div class="slide__head">
+                        <p class="slide__kicker" data-r>Слайд 14 · Данные</p>
+                        <h2 class="slide__title slide__title--sm" data-r>От хаоса данных — к управляемым решениям с ИИ</h2>
+                      </div>
+                      <div class="slide__grid">
+                        <figure class="slide__figure" data-r>
+                          <img src="assets/slide-ai-chaos-order.jpg" width="2200" height="1290" alt="От хаоса данных к управляемым решениям: слева руководитель тонет в потоке документов, справа ИИ-платформа собирает данные в единый контур" loading="lazy" />
+                        </figure>
+                        <ul class="slide__points chaos__points" data-r>
+                          <li><strong>Без единой платформы руководитель тонет в потоке информации.</strong> Письма, отчёты, вопросы и исключения приходят из разных подразделений — и вместо управления получается ручная сборка картины.</li>
+                          <li><strong>ИИ-платформа собирает разрозненные данные в один контур.</strong> Сотрудники на объектах, в офисе и в бэк-офисе работают через общие интерфейсы, агентов и корпоративные знания — и информация перестаёт теряться по пути.</li>
+                          <li><strong>Руководитель получает не «ещё один отчёт», а основу для решения.</strong> Он формулирует задачу, проверяет результат и принимает решение — а не разгребает хаос вручную.</li>
+                        </ul>
+                      </div>
+                      <div class="kdt__warn" data-r>
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 9v4m0 4h.01"/><path d="M10.3 3.6 1.8 18.1A1.8 1.8 0 0 0 3.4 21h17.2a1.8 1.8 0 0 0 1.6-2.9L13.7 3.6a1.8 1.8 0 0 0-3.4 0z"/></svg>
+                        <span>ИИ берёт рутину — человек берёт ответственность</span>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Слайд 15 — компетенции руководителя -->
+                  <section class="slide slide--fit slide--comp" data-slide>
+                    <div class="slide__canvas">
+                      <div class="slide__head">
+                        <p class="slide__kicker" data-r>Слайд 15 · Культура</p>
+                        <h2 class="slide__title slide__title--sm" data-r>Модель компетенций руководителя трансформируется</h2>
+                        <p class="slide__lead" data-r>Классический менеджмент + управление людьми и агентами + культура внедрения</p>
+                      </div>
+                      <div class="comp" data-r>
+                        <div class="comp__cards">
+                          <article class="comp__card">
+                            <span class="comp__num">01</span>
+                            <h3 class="comp__title">Классический менеджмент</h3>
+                            <p class="comp__sub">остаётся базой</p>
+                            <p class="comp__label">Из чего состоит</p>
+                            <ul class="comp__list">
+                              <li>постановка целей</li>
+                              <li>мотивация</li>
+                              <li>переговоры</li>
+                              <li>решение конфликтов</li>
+                              <li>сбор результата через команду</li>
+                            </ul>
+                            <div class="comp__gist"><b>Суть:</b> умение управлять людьми</div>
+                          </article>
+
+                          <article class="comp__card">
+                            <span class="comp__num">02</span>
+                            <h3 class="comp__title">Управление мультиагентной сетью с людьми</h3>
+                            <p class="comp__sub">новый слой</p>
+                            <p class="comp__label">Из чего состоит</p>
+                            <ul class="comp__list">
+                              <li>формирование бизнес-задач — что нужно сделать и зачем</li>
+                              <li>настройка стандартных инструментов — как это будет работать в процессе</li>
+                              <li>валидация результатов — проверка качества и ответственность за итог</li>
+                            </ul>
+                            <p class="comp__label">Плюс 4 практических навыка</p>
+                            <ul class="comp__list">
+                              <li>ставить задачи людям и агентам</li>
+                              <li>проверять качество</li>
+                              <li>связывать агентов между собой</li>
+                              <li>встраивать ИИ в реальные процессы</li>
+                            </ul>
+                            <div class="comp__gist"><b>Суть:</b> не «люди или ИИ», а люди + агенты + процесс</div>
+                          </article>
+
+                          <article class="comp__card">
+                            <span class="comp__num">03</span>
+                            <h3 class="comp__title">Культурные компетенции</h3>
+                            <p class="comp__sub">для зрелого внедрения ИИ</p>
+                            <p class="comp__label">4 слоя</p>
+                            <ul class="comp__list">
+                              <li><b>Data Literacy</b> — понимать данные, задавать правильные вопросы</li>
+                              <li><b>Доверие и принятие ошибок</b> — не бояться признавать ошибки ИИ</li>
+                              <li><b>Скорость адаптации</b> — быстро тестировать, не застревать в согласованиях</li>
+                              <li><b>Кросс-функциональность</b> — работать на стыке бизнеса и ИТ</li>
+                            </ul>
+                            <div class="comp__gist"><b>Суть:</b> зрелость принятия решений и готовность работать с ИИ в команде</div>
+                          </article>
+                        </div>
+                        <div class="comp__foot">
+                          <span class="comp__foot-dot" aria-hidden="true"></span>
+                          <span>Будущее управления — это не «или люди, или ИИ», а люди под усилением AI</span>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Слайд 16 — новые skills: формировать и углублять -->
+                  <section class="slide slide--fit slide--duo slide--imgcontain" data-slide>
+                    <div class="slide__canvas">
+                      <div class="slide__head">
+                        <p class="slide__kicker" data-r>Слайд 16 · Культура</p>
+                        <h2 class="slide__title slide__title--sm" data-r>Новые skills формируют модель компетенций уже сейчас</h2>
+                      </div>
+                      <div class="duo" data-r>
+                        <figure class="slide__figure">
+                          <img src="assets/slide-skills-form.png" width="797" height="810" alt="Формировать: навыки с самым низким владением и самым высоким ростом спроса — зона инвестиций" loading="lazy" />
+                        </figure>
+                        <figure class="slide__figure">
+                          <img src="assets/slide-skills-deepen.png" width="793" height="735" alt="Углублять: навыки с фундаментом, но требующие развития — максимальная отдача от программ обучения" loading="lazy" />
+                        </figure>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Слайд 17 — траектория внедрения -->
+                  <section class="slide slide--fit slide--traj" data-slide>
+                    <div class="slide__canvas">
+                      <div class="slide__head">
+                        <p class="slide__kicker" data-r>Слайд 17 · Культура</p>
+                        <h2 class="slide__title slide__title--sm" data-r>От первых трудностей до агентов — полгода</h2>
+                        <p class="slide__lead" data-r>Типичная траектория внедрения ИИ: рост интереса → критическая зона → первые рабочие агенты</p>
+                      </div>
+                      <div class="traj" data-r>
+                        <div class="traj__chart">
+                          <svg class="traj__svg" viewBox="0 0 1120 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="График траектории внедрения ИИ по сезонам">
+                            <!-- сетка -->
+                            <g class="traj__grid">
+                              <line x1="70" y1="70" x2="1075" y2="70"/>
+                              <line x1="70" y1="140" x2="1075" y2="140"/>
+                              <line x1="70" y1="210" x2="1075" y2="210"/>
+                            </g>
+                            <!-- критическая зона -->
+                            <rect class="traj__zone" x="592" y="42" width="483" height="196" rx="10"/>
+                            <text class="traj__zone-label" x="1060" y="62" text-anchor="end">КРИТИЧЕСКАЯ ЗОНА · ~ПОЛГОДА</text>
+                            <!-- кривая: рост (фиолетовый) -->
+                            <path class="traj__line traj__line--p" d="M110 200 C200 176 262 166 340 140 C428 111 492 92 570 70"/>
+                            <!-- кривая: критическая зона (красный) -->
+                            <path class="traj__line traj__line--r" d="M570 70 C648 118 728 214 800 214 C884 214 968 156 1030 126"/>
+                            <!-- точки -->
+                            <circle class="traj__dot traj__dot--p" cx="110" cy="200" r="8"/>
+                            <circle class="traj__dot traj__dot--p" cx="340" cy="140" r="8"/>
+                            <circle class="traj__dot traj__dot--p" cx="570" cy="70" r="8"/>
+                            <circle class="traj__dot traj__dot--r" cx="800" cy="214" r="8"/>
+                            <circle class="traj__dot traj__dot--r" cx="1030" cy="126" r="8"/>
+                            <!-- подписи точек -->
+                            <text class="traj__pt" x="72" y="180">Обучение + партнёрства</text>
+                            <text class="traj__pt" x="340" y="120" text-anchor="middle">Лёгкий доступ к нейросетям</text>
+                            <text class="traj__pt" x="570" y="50" text-anchor="middle">Сбор инициатив, оценки финэффектов</text>
+                            <text class="traj__pt traj__pt--r" x="800" y="192" text-anchor="middle">Первые трудности реализации</text>
+                            <text class="traj__pt traj__pt--r" x="800" y="238" text-anchor="middle">Неуспешные пилоты</text>
+                            <text class="traj__pt traj__pt--r" x="1058" y="108" text-anchor="end">Появление первых агентов</text>
+                            <!-- ось сезонов -->
+                            <g class="traj__season">
+                              <text x="110" y="272" text-anchor="middle">ВЕСНА</text>
+                              <text x="340" y="272" text-anchor="middle">ЛЕТО</text>
+                              <text x="570" y="272" text-anchor="middle">ОСЕНЬ</text>
+                              <text x="800" y="272" text-anchor="middle">ЗИМА</text>
+                              <text x="1030" y="272" text-anchor="middle">ВЕСНА</text>
+                            </g>
+                          </svg>
+                        </div>
+                        <p class="traj__cards-label">Как сократить критическую зону · 3 опоры</p>
+                        <div class="traj__cards">
+                          <article class="traj__card">
+                            <span class="traj__num">01</span>
+                            <h3 class="traj__card-title">Закономерность личного вовлечения</h3>
+                            <p class="traj__card-text">Учитывать кривую вовлечённости сотрудника: пик в первые 2 недели и спад после 2 месяцев.</p>
+                          </article>
+                          <article class="traj__card">
+                            <span class="traj__num">02</span>
+                            <h3 class="traj__card-title">Резервирование технологического обеспечения</h3>
+                            <p class="traj__card-text">Технология не должна быть причиной неудачи при прохождении критической зоны.</p>
+                          </article>
+                          <article class="traj__card">
+                            <span class="traj__num">03</span>
+                            <h3 class="traj__card-title">Эмоциональная поддержка</h3>
+                            <p class="traj__card-text">Быть рядом с «амбассадорами» до момента рождения первых агентов.</p>
+                          </article>
+                        </div>
+                      </div>
+                    </div>
                   </section>
 
                 </div>

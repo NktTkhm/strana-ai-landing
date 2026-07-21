@@ -1547,6 +1547,283 @@ body.is-open .theme { opacity: 0; pointer-events: none; }
 
 /* Слайд-картинка во всю область: изображение по центру */
 .slide--imgfull .slide__figure { justify-content: center; }
+.slide--fit .slide__title--sm { font-size: clamp(24px, 3.4vh, 44px); line-height: 1.1; }
+
+/* Картинка вписывается целиком (contain), по центру */
+.slide--imgcontain .slide__figure { justify-content: center; }
+.slide--imgcontain .slide__figure img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* — Слайд 17: траектория внедрения — */
+.slide--traj .traj {
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.4vh, 16px);
+}
+.traj__chart {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: clamp(10px, 1.6vh, 18px) clamp(14px, 1.6vw, 22px);
+  border: 1px solid color-mix(in srgb, var(--hair) 75%, var(--accent) 25%);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, .22);
+  overflow: hidden;
+}
+.traj__chart::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--grad);
+}
+.traj__svg { display: block; width: 100%; height: 100%; }
+.traj__grid line { stroke: var(--hair); stroke-width: 1; }
+.traj__zone {
+  fill: color-mix(in srgb, var(--accent-r) 8%, transparent);
+  stroke: color-mix(in srgb, var(--accent-r) 55%, transparent);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 5;
+}
+.traj__zone-label {
+  fill: var(--accent-r);
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+.traj__line { fill: none; stroke-width: 4.5; stroke-linecap: round; }
+.traj__line--p { stroke: var(--accent-2); }
+.traj__line--r { stroke: var(--accent-r); }
+.traj__dot--p { fill: var(--accent-2); }
+.traj__dot--r { fill: var(--accent-r); }
+.traj__pt {
+  fill: var(--fg);
+  font-size: 16px;
+  font-weight: 600;
+}
+.traj__pt--r { fill: var(--accent-r); }
+.traj__season text {
+  fill: var(--fg-muted);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+
+.traj__cards-label {
+  margin: 0;
+  text-align: center;
+  color: var(--accent-soft);
+  font-size: clamp(11px, 1.3vh, 15px);
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.traj__cards {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.6vw, 26px);
+}
+.traj__card {
+  position: relative;
+  padding: clamp(12px, 1.8vh, 20px) clamp(15px, 1.5vw, 22px) clamp(14px, 1.8vh, 20px);
+  border: 1px solid color-mix(in srgb, var(--hair) 75%, var(--accent) 25%);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .2);
+  overflow: hidden;
+}
+.traj__card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--grad);
+}
+.traj__num {
+  display: grid;
+  place-items: center;
+  width: clamp(28px, 3.6vh, 38px);
+  height: clamp(28px, 3.6vh, 38px);
+  margin-bottom: clamp(8px, 1.1vh, 14px);
+  border-radius: 50%;
+  background: var(--grad);
+  color: #fff;
+  font-family: var(--display);
+  font-size: clamp(12px, 1.5vh, 17px);
+  font-weight: 700;
+}
+.traj__card-title {
+  margin: 0 0 clamp(6px, .9vh, 10px);
+  font-family: var(--display);
+  font-size: clamp(15px, 1.95vh, 24px);
+  font-weight: 600;
+  line-height: 1.14;
+}
+.traj__card-text {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: clamp(13px, 1.6vh, 19px);
+  line-height: 1.32;
+}
+
+/* — Слайд 16: две картинки рядом — */
+.slide--duo .duo {
+  min-height: 0;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2vw, 34px);
+  align-items: center;
+}
+.slide--duo .slide__figure { height: 100%; }
+
+/* — Слайд 15: компетенции руководителя — */
+.slide--comp .comp {
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.8vh, 20px);
+}
+.comp__cards {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.6vw, 26px);
+}
+.comp__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: auto;
+  padding: clamp(14px, 1.8vh, 22px) clamp(15px, 1.5vw, 22px) clamp(12px, 1.5vh, 18px);
+  border: 1px solid color-mix(in srgb, var(--hair) 75%, var(--accent) 25%);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .22);
+}
+.comp__card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--grad);
+}
+.comp__num {
+  display: grid;
+  place-items: center;
+  width: clamp(32px, 4vh, 44px);
+  height: clamp(32px, 4vh, 44px);
+  margin-bottom: clamp(8px, 1.1vh, 14px);
+  border-radius: 50%;
+  background: var(--grad);
+  color: #fff;
+  font-family: var(--display);
+  font-size: clamp(14px, 1.7vh, 20px);
+  font-weight: 700;
+}
+.comp__title {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(17px, 2.15vh, 27px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -.01em;
+}
+.comp__sub {
+  margin: clamp(2px, .6vh, 6px) 0 0;
+  color: var(--fg-muted);
+  font-size: clamp(13px, 1.6vh, 19px);
+  font-style: italic;
+}
+.comp__label {
+  margin: clamp(9px, 1.3vh, 15px) 0 clamp(5px, .7vh, 9px);
+  color: var(--accent-soft);
+  font-size: clamp(11px, 1.25vh, 14px);
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.comp__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(5px, .7vh, 9px);
+}
+.comp__list li {
+  position: relative;
+  padding-left: clamp(18px, 1.4vw, 24px);
+  font-size: clamp(12px, 1.5vh, 18px);
+  line-height: 1.26;
+}
+.comp__list li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  top: -.05em;
+  color: var(--accent);
+  font-weight: 700;
+}
+.comp__list b { font-weight: 700; }
+.comp__gist {
+  margin-top: clamp(11px, 1.6vh, 18px);
+  padding: clamp(9px, 1.2vh, 13px) clamp(12px, 1.2vw, 18px);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--hair));
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  font-size: clamp(12px, 1.5vh, 18px);
+  line-height: 1.26;
+}
+.comp__gist b { font-weight: 700; }
+.comp__foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.2vw, 16px);
+  width: min(1100px, 100%);
+  margin-inline: auto;
+  padding: clamp(11px, 1.6vh, 17px) clamp(24px, 3vw, 40px);
+  border-radius: 100px;
+  border: 2px solid color-mix(in srgb, var(--accent-r) 55%, transparent);
+  background: color-mix(in srgb, var(--accent-r) 12%, var(--surface));
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--accent-r) 20%, transparent);
+  color: var(--accent-r);
+  font-size: clamp(15px, 2.1vh, 27px);
+  font-weight: 700;
+  text-align: center;
+}
+.comp__foot-dot {
+  flex: 0 0 auto;
+  width: clamp(9px, 1.1vh, 13px);
+  height: clamp(9px, 1.1vh, 13px);
+  border-radius: 50%;
+  background: var(--accent-r);
+}
+
+/* — Слайд 14: от хаоса к решениям — */
+.slide--chaos .slide__grid { align-items: center; }
+.slide--chaos .chaos__points { justify-content: center; gap: clamp(14px, 2.4vh, 26px); }
+.slide--chaos .chaos__points li { font-size: clamp(15px, 1.95vh, 23px); line-height: 1.32; }
+.slide--chaos .kdt__warn {
+  width: 100%;
+  font-size: clamp(18px, 2.5vh, 30px);
+  padding: clamp(12px, 1.8vh, 18px) clamp(24px, 3vw, 40px);
+}
 
 .slides--tape .slide__title { max-width: 18ch; }
 .slides--tape .slide__zone {
