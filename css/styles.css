@@ -136,7 +136,7 @@ body.is-open .theme { opacity: 0; pointer-events: none; }
   --bar-scrim: linear-gradient(180deg, rgba(244,241,236,.92), rgba(244,241,236,0));
 }
 
-.card__face { position: absolute; inset: 0; z-index: 2; text-align: left; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(18px,1.8vw,30px); transition: opacity .25s var(--ease); }
+.card__face { position: absolute; inset: 0; z-index: 2; text-align: left; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(18px,1.8vw,30px); transition: opacity .25s var(--ease); text-decoration: none; color: inherit; }
 .card:hover .card__media { transform: scale(1.05); }
 .card:hover .card__cta { color: var(--fg); }
 .card:hover .card__cta i { transform: translateX(4px); }

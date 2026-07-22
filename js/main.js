@@ -87,6 +87,8 @@
   }
 
   cards.forEach((c) => {
+    // Карточка-ссылка: переход по внешнему адресу, без разворота
+    if (c.hasAttribute("data-href")) return;
     face(c).addEventListener("click", () => open(c));
     const back = c.querySelector("[data-back]");
     if (back) back.addEventListener("click", (e) => { e.stopPropagation(); close(); });
