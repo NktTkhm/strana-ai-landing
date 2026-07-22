@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=81" />
+  <link rel="stylesheet" href="css/styles.css?v=90" />
 </head>
 <body>
   <div class="mark">
@@ -625,22 +625,22 @@
                             <rect class="traj__zone" x="592" y="42" width="483" height="196" rx="10"/>
                             <text class="traj__zone-label" x="1060" y="62" text-anchor="end">КРИТИЧЕСКАЯ ЗОНА · ~ПОЛГОДА</text>
                             <!-- кривая: рост (фиолетовый) -->
-                            <path class="traj__line traj__line--p" d="M110 200 C200 176 262 166 340 140 C428 111 492 92 570 70"/>
+                            <path class="traj__line traj__line--p" d="M110 205 C210 205 250 150 340 140 C450 128 470 80 570 72"/>
                             <!-- кривая: критическая зона (красный) -->
-                            <path class="traj__line traj__line--r" d="M570 70 C648 118 728 214 800 214 C884 214 968 156 1030 126"/>
+                            <path class="traj__line traj__line--r" d="M570 72 C640 72 700 214 800 214 C900 214 960 152 1030 126"/>
                             <!-- точки -->
-                            <circle class="traj__dot traj__dot--p" cx="110" cy="200" r="8"/>
+                            <circle class="traj__dot traj__dot--p" cx="110" cy="205" r="8"/>
                             <circle class="traj__dot traj__dot--p" cx="340" cy="140" r="8"/>
-                            <circle class="traj__dot traj__dot--p" cx="570" cy="70" r="8"/>
+                            <circle class="traj__dot traj__dot--p" cx="570" cy="72" r="8"/>
                             <circle class="traj__dot traj__dot--r" cx="800" cy="214" r="8"/>
                             <circle class="traj__dot traj__dot--r" cx="1030" cy="126" r="8"/>
                             <!-- подписи точек -->
-                            <text class="traj__pt" x="72" y="180">Обучение + партнёрства</text>
-                            <text class="traj__pt" x="340" y="120" text-anchor="middle">Лёгкий доступ к нейросетям</text>
-                            <text class="traj__pt" x="570" y="50" text-anchor="middle">Сбор инициатив, оценки финэффектов</text>
-                            <text class="traj__pt traj__pt--r" x="800" y="192" text-anchor="middle">Первые трудности реализации</text>
-                            <text class="traj__pt traj__pt--r" x="800" y="238" text-anchor="middle">Неуспешные пилоты</text>
-                            <text class="traj__pt traj__pt--r" x="1058" y="108" text-anchor="end">Появление первых агентов</text>
+                            <text class="traj__pt" x="72" y="185">Обучение + партнёрства</text>
+                            <text class="traj__pt" x="340" y="118" text-anchor="middle">Лёгкий доступ к нейросетям</text>
+                            <text class="traj__pt" x="560" y="52" text-anchor="middle">Сбор инициатив, оценки финэффектов</text>
+                            <text class="traj__pt traj__pt--r" x="800" y="180" text-anchor="middle">Первые трудности реализации</text>
+                            <text class="traj__pt traj__pt--r" x="800" y="242" text-anchor="middle">Неуспешные пилоты</text>
+                            <text class="traj__pt traj__pt--r" x="1058" y="106" text-anchor="end">Появление первых агентов</text>
                             <!-- ось сезонов -->
                             <g class="traj__season">
                               <text x="110" y="272" text-anchor="middle">ВЕСНА</text>
@@ -871,39 +871,39 @@
 
               <div class="rmap__chart" role="img" aria-label="Дорожная карта: технологии выполнены; данные — наличие, доступность, доверие; культура — привычка к ИИ, навыки, внедрение в бизнес-процессы">
                 <!-- Технологии -->
-                <div class="rmap__row" data-rmap-row>
+                <div class="rmap__row rmap__row--tech" data-rmap-row>
                   <div class="rmap__label">
                     <span class="rmap__letter">Т</span>
                     <span class="rmap__name">Технологии</span>
                   </div>
                   <div class="rmap__track">
-                    <div class="rmap__bar rmap__bar--done rmap__bar--full" data-rmap-bar style="--w:100%">
+                    <div class="rmap__bar rmap__bar--done" data-rmap-bar style="--w:100%">
                       <span class="rmap__bar-txt">выполнено</span>
                     </div>
                   </div>
                 </div>
 
                 <!-- Данные -->
-                <div class="rmap__row" data-rmap-row>
+                <div class="rmap__row rmap__row--data" data-rmap-row>
                   <div class="rmap__label">
                     <span class="rmap__letter">Д</span>
                     <span class="rmap__name">Данные</span>
                   </div>
                   <div class="rmap__track rmap__track--split">
-                    <div class="rmap__bar rmap__bar--now" data-rmap-bar style="--w:100%">
+                    <div class="rmap__bar rmap__bar--done" data-rmap-bar style="--w:100%">
                       <span class="rmap__bar-txt">наличие</span>
                     </div>
                     <div class="rmap__bar rmap__bar--now" data-rmap-bar style="--w:100%">
                       <span class="rmap__bar-txt">доступность</span>
                     </div>
-                    <div class="rmap__bar rmap__bar--now" data-rmap-bar style="--w:100%">
+                    <div class="rmap__bar rmap__bar--next" data-rmap-bar style="--w:100%">
                       <span class="rmap__bar-txt">доверие</span>
                     </div>
                   </div>
                 </div>
 
                 <!-- Культура -->
-                <div class="rmap__row" data-rmap-row>
+                <div class="rmap__row rmap__row--culture" data-rmap-row>
                   <div class="rmap__label">
                     <span class="rmap__letter">К</span>
                     <span class="rmap__name">Культура</span>
