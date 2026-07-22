@@ -1626,24 +1626,24 @@ body.is-open .theme { opacity: 0; pointer-events: none; }
   font-size: 15px;
   font-weight: 700;
   paint-order: stroke;
-  stroke: #171A22;
+  stroke: var(--surface);
   stroke-width: 5px;
   stroke-linejoin: round;
 }
-.traj__pt--r { fill: #FF5A6A; }
+.traj__pt--r { fill: var(--accent-r); }
 .traj__season text {
   fill: var(--fg-muted);
   font-size: 14px;
   font-weight: 600;
   letter-spacing: .08em;
   paint-order: stroke;
-  stroke: #171A22;
+  stroke: var(--surface);
   stroke-width: 4px;
   stroke-linejoin: round;
 }
 .traj__zone-label {
   paint-order: stroke;
-  stroke: #171A22;
+  stroke: var(--surface);
   stroke-width: 4px;
   stroke-linejoin: round;
 }
